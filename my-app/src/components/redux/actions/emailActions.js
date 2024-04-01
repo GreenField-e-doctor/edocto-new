@@ -1,4 +1,3 @@
-// emailActions.js
 import axios from 'axios';
 
 export const sendAppointmentEmail = (email, name, date, time,department) => async dispatch => {

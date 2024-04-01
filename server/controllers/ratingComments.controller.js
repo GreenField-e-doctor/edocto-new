@@ -11,8 +11,18 @@ const getReviewsByUserId = async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch reviews' });
     }
 };
+const getAll = async (req, res) => {
+    try {
+        const userReviews = await RatingsComments.findAll({ });
+        res.json(userReviews);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch reviews' });
+    }
+};
 
 // Get all reviews with doctor ID
+
+
 const getReviewsByDoctorId = async (req, res) => {
     const DoctorId = req.params.doctorId;
     try {
@@ -25,11 +35,12 @@ const getReviewsByDoctorId = async (req, res) => {
 
 // Add a new review
 const addReview = async (req, res) => {
-    const { UserId, DoctorId, Rating, Comment } = req.body;
+    const { UserId, rating, review,name,imageSrc } = req.body;
     try {
-        const newReview = await RatingsComments.create({ UserId, DoctorId, Rating, Comment });
+        const newReview = await RatingsComments.create({ UserId, rating, review,name,imageSrc});
         res.json(newReview);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Failed to add review' });
     }
 };
@@ -38,4 +49,5 @@ module.exports = {
     getReviewsByUserId,
     getReviewsByDoctorId,
     addReview,
+    getAll
 };

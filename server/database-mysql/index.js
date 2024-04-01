@@ -1,7 +1,7 @@
 // Import Sequelize and define connection
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'root', 'Yeesou.33', {
+const sequelize = new Sequelize('edoctor', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -117,13 +117,30 @@ const Appointment = sequelize.define('Appointment', {
 
 
 const RatingsComments = sequelize.define('RatingsComments', {
-  Rating: {
+  rating: {
     type: DataTypes.INTEGER,
+
   },
-  Comment: {
+  review: {
     type: DataTypes.TEXT,
   },
-});
+  imageSrc: { 
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  }
+  
+);
+
+  //         "imageSrc": "https://s3-alpha-sig.figma.com/img/0577/f0e9/b7fca2f32639871454da0de95f951709?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JNqy~MgzfTYiIFcizL-nr-Wr6ojSHe5uLBKQ1mvSOq71xqvn5SZa0JnKg4PqsxU3OyopZW3D797~muYI6V3nfsJusTlzfVJb7~dTmI3JTR43RFEFD-8LrRIhvSQnuMzD6Si7Z75gDgN6q6S8qNKoFbnbxloe-QIGIy-VmyUAgCDFfeMUlnO5olljOaKAYissbOtELqaFbwrJjoQfxwYmVnNjC7qKEQSmhyExt2VRnKeLEJiWE2e1IsdMJjW1U7PtWkXUACSEa9jIvKcy-AGsrUpT~0YqNYMkNQMNGYe5mWVyqSMox0-I4XfCjYOWKDhcF~neWYMkjQgy7tjmKgoaZg__",
+  //         "name": "Dr. Sarah Johnson",
+  //         "rating": 5,
+  //         "review": "Excellent service! Dr. Johnson was very knowledgeable and provided clear explanations."
+  //     },
 
 
 
@@ -149,7 +166,6 @@ const Message = sequelize.define('Message', {
   });
 
 User.hasMany(RatingsComments);
-Doctor.hasMany(RatingsComments);
 Doctor.hasMany(Appointment);
 User.hasMany(Appointment);
 
@@ -171,11 +187,11 @@ module.exports = {
 //     console.error('Error creating database and/or tables:', error)
 //   })
 
-module.exports = {
-  User,
-  Doctor,
-  Appointment,
-  RatingsComments,
-  Payments,
-  Message
-};
+// module.exports = {
+//   User,
+//   Doctor,
+//   Appointment,
+//   RatingsComments,
+//   Payments,
+//   Message
+// };
