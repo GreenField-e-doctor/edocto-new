@@ -147,11 +147,36 @@ const Message = sequelize.define('Message', {
     allowNull: false,
   },
   });
+const Blog = sequelize.define('Blog', {
+  Title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Text: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  ImageUrl: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+});
+
+const Comment = sequelize.define('Comment', {
+  Text: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+});
 
 User.hasMany(RatingsComments);
 Doctor.hasMany(RatingsComments);
 Doctor.hasMany(Appointment);
 User.hasMany(Appointment);
+User.hasMany(Blog);
+Blog.belongsTo(User);
+Blog.hasMany(Comment); 
+Comment.belongsTo(Blog);
 
 module.exports = {
   User,
@@ -159,9 +184,10 @@ module.exports = {
   Appointment,
   RatingsComments,
   Payments,
-  Message
+  Message,
+  Blog,
+  Comment, // Add Comment to the exported modules
 };
-
 
 // sequelize.sync()
 //   .then(() => {
@@ -171,11 +197,7 @@ module.exports = {
 //     console.error('Error creating database and/or tables:', error)
 //   })
 
-module.exports = {
-  User,
-  Doctor,
-  Appointment,
-  RatingsComments,
-  Payments,
-  Message
-};
+
+
+
+
