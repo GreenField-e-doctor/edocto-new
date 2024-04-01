@@ -172,12 +172,14 @@ function BookApp() {
               fontWeight: "bold",
               backgroundColor: "#007E85",
               color: "white",
-              padding: "10px 20px",
+              padding: "0px",
               border: "none",
               borderRadius: "25px",
               cursor: "pointer",
               marginTop: "30px",
               marginRight: "30px",
+              fontSize: "16px",
+           
             }}
           >
             Get Quote
@@ -187,11 +189,12 @@ function BookApp() {
               fontWeight: "bold",
               backgroundColor: "transparent",
               color: "white",
-              padding: "10px 20px",
+              padding: "0px",
               border: "1px solid #007E85",
               borderRadius: "25px",
               cursor: "pointer",
               marginTop: "10px",
+              fontSize: "16px",
             }}
           >
             Learn More
@@ -201,13 +204,14 @@ function BookApp() {
               fontWeight: "bold",
               backgroundColor: "#007E85",
               color: "white",
-              padding: "10px 20px",
+              padding: "0px",
               border: "none",
               borderRadius: "25px",
               cursor: "pointer",
               marginTop: "30px",
               marginRight: "30px",
               marginLeft: "30px",
+              fontSize: "16px",
             }}
             onClick={() => navigate("/chat")}
           >
@@ -245,7 +249,7 @@ function BookApp() {
               borderRadius: "11px",
               border: "1px solid #ccc",
               fontFamily: "Arial",
-              fontSize: "16px",
+              fontSize: "11px",
 
             }}
             value={name}

@@ -11,10 +11,13 @@ const userRouter = require('./routes/userrouters');
 const Authentication = require('./routes/loginrouters');
 const nodeMailer = require('../server/controllers/nodeMailer');
 const cloudinary = require('cloudinary');
+const BlogRouter = require('./routes/Blog.routes');
+const CommentRouter = require('./routes/blogComments.router');
 const fileUpload = require('express-fileupload');
 const http = require('http');
 const { Server } = require('socket.io');
 const app = express();
+
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -41,6 +44,8 @@ app.use('/api/doctors', doctorRouter);
 app.use("/api/Appointment", AppointmentRouter);
 app.use("/api/ratingComments", RatingCommentsRouter);
 app.use("/api/users", userRouter);
+app.use('/api/blogs', BlogRouter);
+app.use('/api/comments', CommentRouter);
 app.post('/api/upload', async (req, res) => {
   try {
     const fileStr = req.files.file.data.toString('base64'); 

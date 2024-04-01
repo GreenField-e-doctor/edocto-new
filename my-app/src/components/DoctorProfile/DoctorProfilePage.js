@@ -4,12 +4,12 @@ import DoctorInfo from '../DoctorInfo/DoctorInfo';
 import Rating from 'react-rating-stars-component';
 import { Modal, Button, Form } from 'react-bootstrap';
 import profileImage from './image_16.png'; // Make sure the path is correct
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './DoctorProfile.css';
 
 const DoctorProfilePage = () => {
   const [doctorData, setDoctorData] = useState({
-    name: "Dr. zven Den",
+    name: "Dr. Zven Den",
     specialty: "Cardiology",
     imageUrl: "https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
     ratings: 4.2,
@@ -38,8 +38,8 @@ const DoctorProfilePage = () => {
   const handleCloseProfileModal = () => setShowProfileModal(false);
 
   return (
-    <div className="container my-5">
-      <img src={profileImage} alt="Profile" className="profile-picture" />
+    <div className="doctor-profile-container my-5">
+      <img src={profileImage} alt="Profile" className="doctor-profile-picture" />
       <div className="row">
         <div className="col-md-3">
           <DoctorInfo
@@ -74,8 +74,8 @@ const DoctorProfilePage = () => {
           <div className="mt-4">
             <h5>Filtered Appointments</h5>
             {doctorData.appointments.filter(appointment => appointment.name.toLowerCase().includes(searchQuery.toLowerCase()) || appointment.description.toLowerCase().includes(searchQuery.toLowerCase())).map((appointment, index) => (
-              <div key={index} className="card mb-3">
-                <div className="card-body">
+              <div key={index} className="doctor-profile-card card mb-3">
+                <div className="card-body ">
                   <h5 className="card-title">{appointment.name}</h5>
                   <p className="card-text">{appointment.description}</p>
                   <p className="card-text"><small className="text-muted">{appointment.date}</small></p>

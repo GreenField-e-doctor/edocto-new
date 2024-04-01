@@ -1,44 +1,43 @@
-
-.doctorInfoCard {
+.doctor-info-card {
   background-color: #007E85;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
-.doctorImageWrapper {
+.doctor-image-wrapper {
   width: 100%;
   overflow: hidden; 
 }
 
-.doctorImage {
+.doctor-image {
   width: 100%;
   height: auto;
   transition: transform 0.3s ease-in-out;
 }
 
-.doctorImage:hover {
+.doctor-image:hover {
   transform: scale(1.05); 
 }
 
-.infoWrapper {
+.info-wrapper {
   padding: 1rem;
   text-align: center; 
 }
 
-.doctorName {
+.doctor-name {
   color: #323232; 
   font-size: 1.5rem; 
   font-weight: 600;
   margin-top: 0.75rem;
 }
 
-.doctorSpecialty {
+.doctor-specialty {
   color: #6c757d; 
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
-.ratingsWrapper {
+.ratings-wrapper {
   display: inline-block; 
   padding: 0.25rem 0.75rem;
   background-color: #ffd966; 
@@ -47,19 +46,19 @@
   font-weight: 500;
 }
 
-.editProfileButton {
+.edit-profile-button {
   background-color: #007E85; 
   color: white; 
   margin-top: 15px; 
   border: none; 
 }
 
-.editProfileButton:hover {
+.edit-profile-button:hover {
   background-color: darken(#007E85, 10%); 
   color: rgb(194, 17, 105);
 }
 
-.ratingWrapper {
+.rating-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 10px; 

@@ -80,7 +80,7 @@ const ContactUs= () => {
         </div>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '299px' }}>
             <h1 style={{ color: '#333333', textAlign: 'center',fontSize:'24px' }}>Subscribe to our newsletter</h1>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
          <input type="email" placeholder="enter your email" style={{ marginRight: '10px', padding: '10px', border: 'none',fontSize: '16px', width: '400px', borderRadius:'11px' }} />
