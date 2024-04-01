@@ -171,11 +171,4 @@ module.exports = {
 //     console.error('Error creating database and/or tables:', error)
 //   })
 
-module.exports = {
-  User,
-  Doctor,
-  Appointment,
-  RatingsComments,
-  Payments,
-  Message
-};
+

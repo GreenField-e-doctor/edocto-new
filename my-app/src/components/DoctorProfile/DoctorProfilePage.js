@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import DoctorInfo from '../DoctorInfo/DoctorInfo';
 import Rating from 'react-rating-stars-component';
 import { Modal, Button, Form } from 'react-bootstrap';
-import profileImage from './image_16.png'; // Make sure the path is correct
+import profileImage from './image_16.png'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './DoctorProfile.css';
 
