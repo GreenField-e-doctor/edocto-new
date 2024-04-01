@@ -1,5 +1,4 @@
-
-.container {
+.doctor-profile-container {
   background-color: #fff; 
   box-shadow: 0 2px 4px rgba(170, 18, 18, 0.1); 
   border-radius: 8px; 
@@ -7,14 +6,14 @@
   margin-top: 20px; 
 }
 
-.card {
+.doctor-profile-card {
   border: none; 
   border-radius: 10px; 
   box-shadow: 0 4px 8px rgba(207, 8, 8, 0.05); 
   margin-bottom: 20px; 
 }
 
-.card .card-body {
+.doctor-profile-card .card-body {
   padding: 20px; 
 }
 
@@ -28,7 +27,7 @@
   font-size: 16px; 
 }
 
-.card img.card-img-top {
+.card img.doctor-profile-img-top {
   width: 100%; 
   height: auto; 
   border-top-left-radius: 10px; 
@@ -45,7 +44,7 @@
 }
 
 @media (min-width: 768px) {
-  .container {
+  .doctor-profile-container {
     padding: 40px; 
     margin-top: 40px; 
   }
@@ -60,7 +59,7 @@
   z-index: 1000; 
 }
 
-.profile-picture {
+.doctor-profile-picture {
   max-width: 100px; 
   position: absolute;
   top: 10px; 
