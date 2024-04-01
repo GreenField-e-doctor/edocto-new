@@ -229,6 +229,9 @@ function BookApp() {
             alignItems: "center",
             width: "350px",
             margin: "auto",
+            marginLeft: "380px",
+            height: "fit-content",
+            marginTop: "8px",
           }}
         >
           <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -243,13 +246,10 @@ function BookApp() {
             style={{
               marginBottom: "10px",
               marginLeft: "90px",
-              marginTop: "20px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
-              fontFamily: "Arial",
-              fontSize: "11px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
 
             }}
             value={name}
@@ -277,11 +277,11 @@ function BookApp() {
             placeholder="Address"
             style={{
               marginBottom: "10px",
-            marginLeft: "90px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
+              marginLeft: "90px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
             }}
             value={address}
             onChange={handleAddressChange}
@@ -290,12 +290,11 @@ function BookApp() {
           <select
             style={{
               marginBottom: "10px",
-              marginTop: "10px",
-            marginLeft: "90px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
+              marginLeft: "90px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
             }}
             value={department}
             onChange={handleDepartmentChange}
@@ -317,12 +316,11 @@ function BookApp() {
             onChange={handleTime}
             style={{
               marginBottom: "10px",
-            marginLeft: "30px",
-            marginTop: "20px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
+              marginLeft: "90px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
             }}
           />
           <br />

@@ -1,7 +1,7 @@
 // Import Sequelize and define connection
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'root', 'root', {
+const sequelize = new Sequelize('edoctor', 'root', 'Yeesou.33', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -140,7 +140,7 @@ const RatingsComments = sequelize.define('RatingsComments', {
   //         "name": "Dr. Sarah Johnson",
   //         "rating": 5,
   //         "review": "Excellent service! Dr. Johnson was very knowledgeable and provided clear explanations."
-  //     },
+
 
 
 

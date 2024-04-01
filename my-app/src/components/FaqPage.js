@@ -40,7 +40,6 @@ function faqPage() {
             key={index}
             style={{
               width: "200px",
-              height: "200px",
               backgroundColor: "#FFFFFF",
               display: "flex",
               flexDirection: "column",
@@ -49,6 +48,9 @@ function faqPage() {
               padding: "20px",
               borderRadius: "14px",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+              fontSize: "10px",
+              height: "fit-content", // Adjusted height property
+              width: "280px", // Adjusted width property
             }}
           >
             <h3 style={{ color: "#282F45", textAlign: "center" }}>
