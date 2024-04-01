@@ -137,6 +137,16 @@ const Payments = sequelize.define('Payments', {
   },
 })
 
+const Message = sequelize.define('Message', {
+  content: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  senderId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  });
 
 User.hasMany(RatingsComments);
 Doctor.hasMany(RatingsComments);
@@ -148,7 +158,8 @@ module.exports = {
   Doctor,
   Appointment,
   RatingsComments,
-  Payments
+  Payments,
+  Message
 };
 
 
@@ -165,6 +176,6 @@ module.exports = {
   Doctor,
   Appointment,
   RatingsComments,
-  
   Payments,
+  Message
 };

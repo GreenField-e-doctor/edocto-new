@@ -5,9 +5,11 @@ import Signup from './components/Signup';
 import Book from "./components/Book"
 import ContactUs from "./components/contact us/ContactUs"
 import Login from './components/Login';
+import DoctorProfilePage from './components/DoctorProfile/DoctorProfilePage';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/doctor"  element={<DoctorProfilePage />} />
         </Routes>
     </div>
   );
