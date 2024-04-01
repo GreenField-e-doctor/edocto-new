@@ -9,7 +9,7 @@ import DoctorProfilePage from './components/DoctorProfile/DoctorProfilePage';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
 function App() {
   return (

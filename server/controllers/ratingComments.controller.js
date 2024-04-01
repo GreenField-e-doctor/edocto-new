@@ -16,6 +16,7 @@ const getAll = async (req, res) => {
         const userReviews = await RatingsComments.findAll({ });
         res.json(userReviews);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Failed to fetch reviews' });
     }
 };
