@@ -4,10 +4,11 @@ import {thunk} from 'redux-thunk';
 import authReducer from './reducers/authreducer';
 // import appointmentReducer from './appointmentReducer'; // import your appointment reducer
 import emailReducer from './reducers/emailReducer'; // import your email reducer
+import reviews from './reducers/reviews'
 
 const rootReducer = combineReducers({
   auth: authReducer,
- 
+  reviews: reviews,
   email: emailReducer, // add your email reducer
 });
 
