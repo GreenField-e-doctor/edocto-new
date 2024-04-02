@@ -9,6 +9,8 @@ import DoctorProfilePage from './components/DoctorProfile/DoctorProfilePage';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
+import Doctorlist from './components/Doctorlist';
+import Doctorcards from './components/Doctorcards';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/doctorlist" element={<Doctorlist />} />
+        <Route path="/doctorcards" element={<Doctorcards/>} />
         </Routes>
     </div>
   );
