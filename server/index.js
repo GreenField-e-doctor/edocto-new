@@ -1,12 +1,14 @@
 const express = require("express");
 // const itemRoutes = require('./routes/item.routes')
 const cors = require("cors");
-// TODO: Update this
+
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 const db = require('./database-mysql');
 const doctorRouter = require('./routes/doctor.router');
 const AppointmentRouter = require('./routes/Appointment.router');
 const RatingCommentsRouter = require('./routes/ratingComments.router');
+const messagesRouter = require('./routes/messages.router')
+
 const userRouter = require('./routes/userrouters');
 const Authentication = require('./routes/loginrouters');
 const nodeMailer = require('../server/controllers/nodeMailer');
@@ -36,6 +38,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 app.use(cors())
+app.use('/api/messages', messagesRouter);
+
 app.use("/api/auth", Authentication);
 app.use('/api/doctors', doctorRouter);
 app.use("/api/Appointment", AppointmentRouter);

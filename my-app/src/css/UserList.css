@@ -58,26 +58,31 @@
   }
   
   .message-history {
-    padding: 20px;
+    padding:40px;
     overflow-y: auto;
     flex-grow: 1;
   }
   
   .message {
-    max-width: 60%;
+    max-width: 50%;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 7px;
     border-radius: 18px;
     position: relative;
+    color:white;    
+    font-size: 15px;
   }
   
   .message.sent {
     background: #007E85;
     align-self: flex-end;
+    float: right;
   }
   
   .message.received {
-    background: #ffffff;
+    background: #007E85;
+    
+
     align-self: flex-start;
   }
   
@@ -120,6 +125,7 @@
   }
 
   .message-input-area button:hover {
+    color: white;
     background: #0056b3;
   }
 

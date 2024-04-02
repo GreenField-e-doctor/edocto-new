@@ -8,11 +8,13 @@ import Login from './components/Login';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
+import OneBlog from './components/blog';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      <OneBlog/>
+      {/* <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />  
@@ -20,7 +22,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
-        </Routes>
+        </Routes> */}
     </div>
   );
 }
