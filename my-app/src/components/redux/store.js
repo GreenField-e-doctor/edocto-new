@@ -7,6 +7,7 @@ import emailReducer from './reducers/emailReducer'; // import your email reducer
 import reviews from './reducers/reviews'
 import blogReducer from './reducers/blogReducer';
 // import doctorReducer from './reducers/doctorReducer'
+import productReducer from './reducers/productReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   email: emailReducer, // add your email reducer
  blog: blogReducer,
   // doctor: doctorReducer,
+  product: productReducer,
 });
 
 const store = configureStore({

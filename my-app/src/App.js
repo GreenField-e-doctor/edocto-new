@@ -13,11 +13,12 @@ import BlogList from './components/blogList/BlogList';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
 import PostBlog from './components/DoctorProfile/PostBlog';
+import PharmacyPage from './components/Pharmacy/ParmacyPage';
+
 function App() {
   return (
     <div className="App">
-      {/* <OneBlog/> */}
-       {/* <Routes>
+       <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />  
@@ -25,12 +26,12 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
-        </Routes>
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/bloglist" element={<BlogList />} />
         <Route path="/postblog" element={<PostBlog />} />
+        <Route path="/pharmacy" element={<PharmacyPage />} />
 
-        </Routes> */}
+        </Routes>
     </div>
   );
 }
