@@ -28,6 +28,7 @@ function Navbar() {
   return (
     <div className="divNavbar">
       <div className="logoContainer">
+    
         <img
           className="logo"
           src="https://s3-alpha-sig.figma.com/img/efb1/3ff6/87f33e562a35e98a4b2866ad981588b7?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pNsCo6gSwajGhMArLnkzchWJ5F9xwvZDQH9p3EcC9xdhLn6VIhjM64xCh1rPdNMXVltTUAaQbCTrOwgHDza5Fb2V6XDtxhGdmQZnHl~1F4j~ovOIIEo2MiUWwVZ4H1Vb6FnmVofNZVZ4DXWjdrJnDbAUVgZ1042bqZYWGg7lRZoFyZFKNR834T0P5maRuW-sdgZh4L3306qQ7BsODW34QnanQgpG2mE-E2Ml1bu2-dJPx80a0U42xLTfd3t6uixITTIgsOqiSmObVqc8lMRT5A67UWec8CUdy8LWANYxWLBgPFsoMG-5~YLwJk4896iT5iqiyHK8HHWvimwqtcLAAg__"

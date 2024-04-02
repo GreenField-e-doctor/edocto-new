@@ -1,0 +1,34 @@
+
+.imgBlogDetail{
+    height: 400px;
+    float: left;
+    margin-left: 40px;
+    border-radius: 12px;
+    margin-top: 150px;
+}
+.textupBlogD{
+    color: #8492a6 !important;
+
+}
+.textDownBlogd{
+    float: left;
+    margin-left: 40px;
+
+    color: #8492a6 !important;
+     
+}
+.SideBarr{
+    float: right;
+    margin-top: 120px;
+    margin-right: 50px;
+
+
+}
+.search{
+   
+    width: 1000px;
+    margin-bottom: 350px;
+}
+.Comments{ 
+    float: left;
+}

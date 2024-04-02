@@ -1,26 +1,12 @@
-// Import Sequelize and define connection
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'root', 'root', {
+const sequelize = new Sequelize('edoctor', 'Amine', 'wess2004wess', {
   host: 'localhost',
   dialect: 'mysql',
 });
 
 
-
-
 const User = sequelize.define('User', {
-
-  FirstName: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    defaultValue:'john'
-  },
-  LastName: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    defaultValue:'doe'
-  },
 
   Username: {
     type: DataTypes.STRING,
@@ -29,45 +15,33 @@ const User = sequelize.define('User', {
   },
   Email: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
     unique: true,
   },
   Password: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  PhoneNumber: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    defaultValue:'06254987'
-  },
-  imageUrl: {
-    type: DataTypes.STRING,
-    defaultValue: '',
-    allowNull: true
-  },
   UserType: {
     type: DataTypes.ENUM('Patient', 'Doctor'),
-    defaultValue: 'Patient',
-  }
-})
+    allowNull: false,
+  },
+});
 
 
 const Doctor = sequelize.define('Doctor', {
   FirstName: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue:'john'
   },
   LastName: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue:'doe'
   },
 
   Username: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
     unique: true,
   },
   Email: {
@@ -86,14 +60,22 @@ const Doctor = sequelize.define('Doctor', {
   ImageUrl: {
     type: DataTypes.STRING,
     defaultValue: '',
-    allowNull: true
+    allowNull: false
   },
   Speciality: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
   },
 });
 
+const Message = sequelize.define('Message', {
+  content: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+
+ 
+  });
 
 const Appointment = sequelize.define('Appointment', {
 
@@ -108,12 +90,7 @@ const Appointment = sequelize.define('Appointment', {
     type: DataTypes.ENUM('Paid', 'Unpaid'),
     defaultValue: 'Unpaid',
   },
-  Department : {
-    type: DataTypes.STRING,
-    allowNull: false,
-  }
-  }
-)
+});
 
 
 const RatingsComments = sequelize.define('RatingsComments', {
@@ -143,27 +120,37 @@ const RatingsComments = sequelize.define('RatingsComments', {
 
 
 
+const Admin = sequelize.define('Admin', {
+ 
+  Username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  Email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  Password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
+
 
 const Payments = sequelize.define('Payments', {
-  
+
   Amount: {
     type: DataTypes.DECIMAL(10, 2),
   },
   PaymentDate: {
     type: DataTypes.DATE,
   },
-})
+});
 
-const Message = sequelize.define('Message', {
-  content: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  senderId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  });
+
+  
 const Blog = sequelize.define('Blog', {
   Title: {
     type: DataTypes.STRING,
@@ -210,14 +197,7 @@ module.exports = {
 //     console.log('Database and tables created!');
 //   })
 //   .catch((error) => {
-//     console.error('Error creating database and/or tables:', error)
-//   })
+//     console.error('Error creating database and/or tables:', error);
+//   });
 
-// module.exports = {
-//   User,
-//   Doctor,
-//   Appointment,
-//   RatingsComments,
-//   Payments,
-//   Message
-// };
+
