@@ -9,6 +9,8 @@ import DoctorProfilePage from './components/DoctorProfile/DoctorProfilePage';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
+import Doctorlist from './components/Doctorlist';
+import Doctorcards from './components/Doctorcards';
 import BlogList from './components/blogList/BlogList';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
@@ -31,6 +33,10 @@ function App() {
         <Route path="/postblog" element={<PostBlog />} />
 
         </Routes> */}
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/doctorlist" element={<Doctorlist />} />
+        <Route path="/doctorcards" element={<Doctorcards/>} />
+        {/* </Routes> */}
     </div>
   );
 }
