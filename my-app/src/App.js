@@ -16,7 +16,8 @@ import PostBlog from './components/DoctorProfile/PostBlog';
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <OneBlog/> */}
+       {/* <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />  
@@ -24,11 +25,12 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
+        </Routes>
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/bloglist" element={<BlogList />} />
         <Route path="/postblog" element={<PostBlog />} />
 
-        </Routes>
+        </Routes> */}
     </div>
   );
 }
