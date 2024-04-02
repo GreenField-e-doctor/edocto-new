@@ -60,7 +60,6 @@ function Chat() {
        
         </div>
       </div>
-
       <div className="chat-area">
         <header className="chat-header">
     

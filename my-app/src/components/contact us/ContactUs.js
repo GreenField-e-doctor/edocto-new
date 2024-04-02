@@ -16,13 +16,13 @@ const ContactUs= () => {
         </div>
       <div className="get-in-us-contactus">
         <p
-          style={{ fontSize: "16px", fontFamily: "sans-serif", opacity: "0.7" }}
+          style={{ fontSize: "16px", fontFamily: "sans-serif", opacity: "0.7",color:"#007E85" }}
         >
           Get in Touch
         </p>
-        <h1 style={{ fontSize: "42px" }}>Contact Us</h1>
+        <h1 style={{ fontSize: "42px", fontFamily: "sans-serif", opacity: "0.7",color:"#007E85" }}>Contact Us</h1>
         <p
-          style={{ fontSize: "16px", fontFamily: "sans-serif", opacity: "0.7" }}
+          style={{ fontSize: "16px", fontFamily: "sans-serif", opacity: "0.7",color:"#007E85" }}
         >
           Lorem ipsum dolor sit amat, consecteur adipiscing elit .
         </p>

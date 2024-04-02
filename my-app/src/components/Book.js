@@ -47,7 +47,7 @@ const Input = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #007bff;
+  background-color: #007E85;
   color: white;
   padding: 10px 20px; /* Increase padding to make the button bigger */
   border: none;
@@ -167,7 +167,7 @@ function BookApp() {
           <h1 fontSize={35}>Meet The Best Hospital</h1>
           <h4>We know how large objects will act ,</h4>
           <h4>but things on a small scale.</h4>
-          <button
+          <button className="btn 2  11"
             style={{
               fontWeight: "bold",
               backgroundColor: "#007E85",
@@ -178,28 +178,32 @@ function BookApp() {
               cursor: "pointer",
               marginTop: "30px",
               marginRight: "30px",
+              marginLeft: "30px",
               fontSize: "16px",
            
             }}
           >
             Get Quote
           </button>
-          <button
+          <button className="btn btn-primary"
             style={{
               fontWeight: "bold",
-              backgroundColor: "transparent",
+              fontWeight: "bold",
+              backgroundColor: "#007E85",
               color: "white",
               padding: "0px",
-              border: "1px solid #007E85",
+              border: "none",
               borderRadius: "25px",
               cursor: "pointer",
-              marginTop: "10px",
+              marginTop: "30px",
+              marginRight: "30px",
+              marginLeft: "30px",
               fontSize: "16px",
             }}
           >
             Learn More
           </button>
-          <button
+          {/* <button
             style={{
               fontWeight: "bold",
               backgroundColor: "#007E85",
@@ -216,7 +220,7 @@ function BookApp() {
             onClick={() => navigate("/chat")}
           >
             Connect With a doctor 
-          </button>
+          </button> */}
         </Content>
 
         <Form
@@ -245,7 +249,7 @@ function BookApp() {
             placeholder="Name"
             style={{
               marginBottom: "10px",
-              marginLeft: "90px",
+              // marginLeft: "90px",
                 width: "180px",
                 padding: "5px",
                 borderRadius: "11px",
@@ -262,7 +266,7 @@ function BookApp() {
             placeholder="Email"
             style={{
               marginBottom: "10px",
-            marginLeft: "90px",
+            // marginLeft: "90px",
               width: "180px",
               padding: "5px",
               borderRadius: "11px",
@@ -277,7 +281,7 @@ function BookApp() {
             placeholder="Address"
             style={{
               marginBottom: "10px",
-              marginLeft: "90px",
+              // marginLeft: "90px",
                 width: "180px",
                 padding: "5px",
                 borderRadius: "11px",
@@ -290,7 +294,7 @@ function BookApp() {
           <select
             style={{
               marginBottom: "10px",
-              marginLeft: "90px",
+              // marginLeft: "90px",
                 width: "180px",
                 padding: "5px",
                 borderRadius: "11px",
@@ -307,7 +311,10 @@ function BookApp() {
           </select>
           <br />
           <DatePicker
-            style={{ marginLeft: "0px", marginTop: "15px" }}
+            style={{  marginBottom: "10px",width: "180px",padding: "5px", borderRadius: "11px", border: "1px solid #ccc"
+
+
+          }}
             onChange={handleDateChange}
           />
           <input
@@ -316,7 +323,7 @@ function BookApp() {
             onChange={handleTime}
             style={{
               marginBottom: "10px",
-              marginLeft: "90px",
+              // marginLeft: "90px",
                 width: "180px",
                 padding: "5px",
                 borderRadius: "11px",
