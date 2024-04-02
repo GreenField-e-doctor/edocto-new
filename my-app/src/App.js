@@ -9,12 +9,15 @@ import DoctorProfilePage from './components/DoctorProfile/DoctorProfilePage';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
+import OneBlog from './components/blog';
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
 function App() {
   return (
     <div className="App">
-      <Routes>
+      <OneBlog/>
+      {/* <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />  
@@ -22,9 +25,10 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
+        </Routes>
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/reviews" element={<Reviews />} />
-        </Routes>
+        </Routes> */}
     </div>
   );
 }

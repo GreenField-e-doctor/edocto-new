@@ -1,26 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import { io } from 'socket.io-client';
+import axios from 'axios'; 
 import '../css/UserList.css'; 
-import socketIOClient from 'socket.io-client';
 import DataUsers from '../dataUsers.json';
-// import PersistentDrawerLeft from './SideBarr'
 import Footer from './footer/Footer';
 import Navbar from './Navbar';
-const ENDPOINT = 'http://localhost:3001';
+import DefaultSidebar from './SideBarr';
+const ENDPOINT = 'http://localhost:3000';
 
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState('');
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-
-    socket.on('message', (message) => {
-      setMessages(prevMessages => [...prevMessages, message]);
+    const socket = io(ENDPOINT);
+    setSocket(socket);
+    axios.get('http://localhost:3000/api/messages')
+    .then(response => {
+      setMessages(response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching messages:', error);
+    });
+    socket.on('new_message', receiveMessage);
+    socket.on(' ', (data) => {
+      setMessages(prevMessages => [...prevMessages, data]);
     });
 
-    return () => socket.disconnect();
+    return () => {
+      if (socket) {
+        socket.disconnect();
+      }
+    };
   }, []);
-
+  const receiveMessage = (data) => {
+    setMessages(prevMessages => [...prevMessages, data]);
+  };
   const handleMessageChange = (e) => {
     setMessageInput(e.target.value);
   };
@@ -35,41 +51,30 @@ function Chat() {
 
     setMessages(prevMessages => [...prevMessages, newMessage]);
     setMessageInput('');
-
-    // Emit message to the server
-    const socket = socketIOClient(ENDPOINT);
-    socket.emit('message', newMessage);
+    axios.post('http://localhost:3000/api/messages', newMessage)
+    .then(response => {
+      console.log('Message saved successfully:', response.data);
+    })
+    .catch(error => {
+      console.error('Error saving message:', error);
+    });
+    if (socket) {
+      socket.emit('send_message', newMessage);
+    }
   };
 
-  return ( <div>
-    <Navbar/>
-      <div className="chat-container">
-
+  return (
+    <div>
+    <Navbar />
+    {/* <DefaultSidebar /> */}
+    <div className="chat-container">
       <div className="sidebar">
-        {/* <PersistentDrawerLeft/> */}
-        <div className="search-bar">
-          <input type="text" placeholder="Search for message" />
-        </div>
-        <div className="recent-chats">
-          {DataUsers.users.map(user => (
-            <div key={user.id}>
-              <p>{user.name}</p>
-              <h6>{user.msg}</h6>
-            </div>
-          ))}
-       
-        </div>
+        {/* Sidebar content */}
       </div>
       <div className="chat-area">
-        <header className="chat-header">
-    
-          <h2>Jone Martin</h2>
-          <span className="status">Online</span>
-        </header>
         <div className="message-history">
-
-          {messages.map(message => (
-            <div className={`message ${message.sender === 'You' ? 'sent' : 'received'}`} key={message.id}>
+          {messages.map((message, index) => (
+            <div key={index} className={`message ${message.sender === 'You' ? 'sent' : 'received'}`}>
               <div className="message-info">
                 <span className="sender">{message.sender}</span>
                 <span className="timestamp">{message.timestamp}</span>
@@ -84,8 +89,8 @@ function Chat() {
         </div>
       </div>
     </div>
-    <Footer/> 
-    </div>
+    <Footer />
+  </div>
   );
 }
 
