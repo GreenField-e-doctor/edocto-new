@@ -172,12 +172,14 @@ function BookApp() {
               fontWeight: "bold",
               backgroundColor: "#007E85",
               color: "white",
-              padding: "10px 20px",
+              padding: "0px",
               border: "none",
               borderRadius: "25px",
               cursor: "pointer",
               marginTop: "30px",
               marginRight: "30px",
+              fontSize: "16px",
+           
             }}
           >
             Get Quote
@@ -187,11 +189,12 @@ function BookApp() {
               fontWeight: "bold",
               backgroundColor: "transparent",
               color: "white",
-              padding: "10px 20px",
+              padding: "0px",
               border: "1px solid #007E85",
               borderRadius: "25px",
               cursor: "pointer",
               marginTop: "10px",
+              fontSize: "16px",
             }}
           >
             Learn More
@@ -201,13 +204,14 @@ function BookApp() {
               fontWeight: "bold",
               backgroundColor: "#007E85",
               color: "white",
-              padding: "10px 20px",
+              padding: "0px",
               border: "none",
               borderRadius: "25px",
               cursor: "pointer",
               marginTop: "30px",
               marginRight: "30px",
               marginLeft: "30px",
+              fontSize: "16px",
             }}
             onClick={() => navigate("/chat")}
           >
@@ -225,6 +229,9 @@ function BookApp() {
             alignItems: "center",
             width: "350px",
             margin: "auto",
+            marginLeft: "380px",
+            height: "fit-content",
+            marginTop: "8px",
           }}
         >
           <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -239,13 +246,10 @@ function BookApp() {
             style={{
               marginBottom: "10px",
               marginLeft: "90px",
-              marginTop: "20px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
-              fontFamily: "Arial",
-              fontSize: "16px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
 
             }}
             value={name}
@@ -273,11 +277,11 @@ function BookApp() {
             placeholder="Address"
             style={{
               marginBottom: "10px",
-            marginLeft: "90px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
+              marginLeft: "90px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
             }}
             value={address}
             onChange={handleAddressChange}
@@ -286,12 +290,11 @@ function BookApp() {
           <select
             style={{
               marginBottom: "10px",
-              marginTop: "10px",
-            marginLeft: "90px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
+              marginLeft: "90px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
             }}
             value={department}
             onChange={handleDepartmentChange}
@@ -313,12 +316,11 @@ function BookApp() {
             onChange={handleTime}
             style={{
               marginBottom: "10px",
-            marginLeft: "30px",
-            marginTop: "20px",
-              width: "180px",
-              padding: "5px",
-              borderRadius: "11px",
-              border: "1px solid #ccc",
+              marginLeft: "90px",
+                width: "180px",
+                padding: "5px",
+                borderRadius: "11px",
+                border: "1px solid #ccc",
             }}
           />
           <br />

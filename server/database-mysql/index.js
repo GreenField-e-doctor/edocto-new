@@ -94,14 +94,30 @@ const Appointment = sequelize.define('Appointment', {
 
 
 const RatingsComments = sequelize.define('RatingsComments', {
-  
-  Rating: {
+  rating: {
     type: DataTypes.INTEGER,
+
   },
-  Comment: {
+  review: {
     type: DataTypes.TEXT,
   },
-});
+  imageSrc: { 
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  }
+  
+);
+
+  //         "imageSrc": "https://s3-alpha-sig.figma.com/img/0577/f0e9/b7fca2f32639871454da0de95f951709?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JNqy~MgzfTYiIFcizL-nr-Wr6ojSHe5uLBKQ1mvSOq71xqvn5SZa0JnKg4PqsxU3OyopZW3D797~muYI6V3nfsJusTlzfVJb7~dTmI3JTR43RFEFD-8LrRIhvSQnuMzD6Si7Z75gDgN6q6S8qNKoFbnbxloe-QIGIy-VmyUAgCDFfeMUlnO5olljOaKAYissbOtELqaFbwrJjoQfxwYmVnNjC7qKEQSmhyExt2VRnKeLEJiWE2e1IsdMJjW1U7PtWkXUACSEa9jIvKcy-AGsrUpT~0YqNYMkNQMNGYe5mWVyqSMox0-I4XfCjYOWKDhcF~neWYMkjQgy7tjmKgoaZg__",
+  //         "name": "Dr. Sarah Johnson",
+  //         "rating": 5,
+  //         "review": "Excellent service! Dr. Johnson was very knowledgeable and provided clear explanations."
+
 
 
 const Admin = sequelize.define('Admin', {
@@ -133,18 +149,48 @@ const Payments = sequelize.define('Payments', {
   },
 });
 
-User.hasOne(Doctor);
-Doctor.belongsTo(User);
 
-User.hasMany(Appointment, { as: 'PatientAppointments', foreignKey: 'PatientID' });
-User.hasMany(Appointment, { as: 'DoctorAppointments', foreignKey: 'DoctorID' });
-Appointment.belongsTo(User, { as: 'Patient', foreignKey: 'PatientID' });
-Appointment.belongsTo(User, { as: 'Doctor', foreignKey: 'DoctorID' });
+  
+const Blog = sequelize.define('Blog', {
+  Title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Text: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  ImageUrl: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+});
+
+const Comment = sequelize.define('Comment', {
+  Text: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+});
 
 User.hasMany(RatingsComments);
-Doctor.hasMany(RatingsComments);
-RatingsComments.belongsTo(User);
-RatingsComments.belongsTo(Doctor);
+Doctor.hasMany(Appointment);
+User.hasMany(Appointment);
+User.hasMany(Blog);
+Blog.belongsTo(User);
+Blog.hasMany(Comment); 
+Comment.belongsTo(Blog);
+
+module.exports = {
+  User,
+  Doctor,
+  Appointment,
+  RatingsComments,
+  Payments,
+  Message,
+  Blog,
+  Comment, // Add Comment to the exported modules
+};
 
 // sequelize.sync()
 //   .then(() => {
@@ -154,12 +200,4 @@ RatingsComments.belongsTo(Doctor);
 //     console.error('Error creating database and/or tables:', error);
 //   });
 
-module.exports = {
-  User,
-  Doctor,
-  Message,
-  Appointment,
-  RatingsComments,
-  Admin,
-  Payments,
-};
+

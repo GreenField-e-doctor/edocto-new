@@ -1,4 +1,6 @@
 # node etc
+### node etc ###
+
 # Logs
 logs
 *.log
@@ -31,4 +33,5 @@ bower_components/
 .floo
 .floobit
 .floo
+.flooignore
 .flooignore
