@@ -4,7 +4,7 @@ import DoctorInfo from '../DoctorInfo/DoctorInfo';
 import Rating from 'react-rating-stars-component';
 import { Modal, Button, Form } from 'react-bootstrap';
 import profileImage from './image_16.png'; 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './DoctorProfile.css';
 import Reviews from '../Reviews';
 // import PostBlog from './PostBlog'

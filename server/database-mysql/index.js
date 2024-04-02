@@ -167,10 +167,21 @@ const Blog = sequelize.define('Blog', {
 });
 
 const Comment = sequelize.define('Comment', {
-  Text: {
+
+  author:{
+      type: DataTypes.TEXT,
+    allowNull: false,
+
+    },
+    content: {
     type: DataTypes.TEXT,
     allowNull: false,
+   
   },
+    timestamp:{
+      type: DataTypes.DATE, 
+    } 
+    
 });
 
 User.hasMany(RatingsComments);

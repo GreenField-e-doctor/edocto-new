@@ -1,0 +1,74 @@
+
+.imgBlogDetail{
+    height: 400px;
+    float: left;
+    margin-left: 40px;
+    border-radius: 12px;
+    margin-top: 150px;
+}
+.textupBlogD{
+    color: #8492a6 !important;
+
+}
+.textDownBlogd{
+    float: left;
+    margin-left: 40px;
+
+    color: #8492a6 !important;
+     
+}
+.SideBarr{
+    float: right;
+    margin-top: 120px;
+    margin-right: 50px;
+
+
+}
+
+.search{
+    margin-bottom: 350px;
+}
+.Recent-post{
+    margin-left: -400px;
+}
+.Comment {
+    clear: both; /* Clear floats */
+    margin-top: 20px; /* Adjust margin as needed */
+    margin-left: -400px;
+
+  }
+#outlined-basic{
+    margin-left: 100px;
+}
+.content{
+    color: #8492a6 !important;
+margin-left: 200px;
+padding-top:9
+}
+
+.form{
+   float: left;
+   
+}
+.send{
+    color: white;
+    background-color: blue;
+}
+.Leave-CommentN{
+    margin-left: -900px;
+    
+}
+.yout-comment{
+    height: 150px;
+}
+.LastBlogsDiv{
+    display: flex;
+}
+.LastBlogs{
+    height: 60px;
+    margin-left: -280px;
+}
+.LastBlogsP{
+    font-size: 13px;
+     margin-top: 20px;
+}
