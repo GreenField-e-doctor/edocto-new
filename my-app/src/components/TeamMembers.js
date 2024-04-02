@@ -63,8 +63,8 @@ function TeamMembers() {
                         alt="Team Member"
                         style={{ width: '150px', height: '150px', borderRadius: '50%', marginBottom: '10px' }}
                     />
-                    <h2 style={{ color: '#007E85' }}>{item.name}</h2>
-                    <h3 style={{ color: '#000' }}>{item.job}</h3>
+                    <h2 style={{ color: '#007E85' ,fontSize:"15px"} }>{item.name}</h2>
+                    <h3 style={{ color: '#000',fontSize:"15px" }}>{item.job}</h3>
                     <p style={{ color: '#5D5D5D' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
 

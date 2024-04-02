@@ -13,7 +13,6 @@ function Rates() {
     function getTopRatedComments(data) {
         // Sort the data by rating in descending order
         const sortedData = data.sort((a, b) => b.rating - a.rating);
-
         // Get the top 3 rated comments
         const topRatedComments = sortedData.slice(0, 3);
 
@@ -70,9 +69,9 @@ function Rates() {
                                     marginBottom: '10px',
                                 }}
                             >
-                                <h3 style={{ fontSize: '20px', color: '#007E85', marginRight: '30px' }}>{item.name}</h3>
+                                <h3 style={{ fontSize: '17px', color: '#007E85', marginRight: '30px' }}>{item.name}</h3>
                                 <div style={{ whiteSpace: 'nowrap' }}>
-                                    <ReactStars  count={item.rating} value={item.rating} size={20} color1="#CCCCCC" color2="#FFD700" edit={false}  />
+                                    <ReactStars  count={item.rating} value={item.rating} size={17} color1="#CCCCCC" color2="#FFD700" edit={false}  />
                                 </div>
                             </div>
                             <h2 style={{ fontSize: '20px', marginBottom: '10px', color: '#333333' }}>“{item.review}”</h2>
