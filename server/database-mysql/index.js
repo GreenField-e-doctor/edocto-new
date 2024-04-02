@@ -1,7 +1,7 @@
 // Import Sequelize and define connection
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'root', 'Yeesou.33', {
+const sequelize = new Sequelize('edoctor', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql',
 });
