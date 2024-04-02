@@ -37,7 +37,7 @@ const BlogList = () => {
               <h2>{blog.Title}</h2>
               <FaComment className="comment-icon" />
               </div>
-              <p>{blog.Text.substring(0, 100)}...</p>
+              <p>{blog.Text.substring(0, 200)}...</p>
               <Link to={`/blog/${blog.id}`} className="read-more">Read More</Link>
             </div>
           </div>

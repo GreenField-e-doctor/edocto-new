@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DoctorInfo from '../DoctorInfo/DoctorInfo';
 import Rating from 'react-rating-stars-component';
@@ -6,8 +6,14 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import profileImage from './image_16.png'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './DoctorProfile.css';
+import Reviews from '../Reviews';
+// import PostBlog from './PostBlog'
 
 const DoctorProfilePage = () => {
+
+
+
+
   const [doctorData, setDoctorData] = useState({
     name: "Dr. Zven Den",
     specialty: "Cardiology",
@@ -25,7 +31,13 @@ const DoctorProfilePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
+  const [isReview, setIsReview] = useState(false);
 
+
+
+  useEffect(() => {
+
+  }, [doctorData, searchQuery, showPasswordModal, showProfileModal, isReview])
   const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
@@ -63,17 +75,21 @@ const DoctorProfilePage = () => {
             </li>
             <li className="nav-item">
               <Button variant="primary" onClick={handleShowPasswordModal}>Change Password</Button>
+              <Button variant="primary" onClick={()=>setIsReview(false)}>Appointments</Button>
             </li>
+            <li className="nav-item">
+          <button onClick={() => navigate('/postblog')} className="btn btn-primary">Post Blog</button>
+        </li>
             <li className="nav-item">
               <a className="nav-link" onClick={() => navigate('/notifications')}>Notifications</a>
             </li>
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={() => navigate('/reviews')}>Reviews</button>
+              <button className="nav-link btn btn-link" onClick={()=>setIsReview(true)}>Reviews</button>
             </li>
           </ul>
           <div className="mt-4">
             <h5>Filtered Appointments</h5>
-            {doctorData.appointments.filter(appointment => appointment.name.toLowerCase().includes(searchQuery.toLowerCase()) || appointment.description.toLowerCase().includes(searchQuery.toLowerCase())).map((appointment, index) => (
+            { isReview ? <Reviews/>:doctorData.appointments.filter(appointment => appointment.name.toLowerCase().includes(searchQuery.toLowerCase()) || appointment.description.toLowerCase().includes(searchQuery.toLowerCase())).map((appointment, index) => (
               <div key={index} className="doctor-profile-card card mb-3">
                 <div className="card-body ">
                   <h5 className="card-title">{appointment.name}</h5>

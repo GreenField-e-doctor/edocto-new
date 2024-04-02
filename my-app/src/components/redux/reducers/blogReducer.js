@@ -1,17 +1,31 @@
-import { SET_DOCTOR_PROFILE } from '../actions/doctorActions';
-
 const initialState = {
-  profile: null,
+  blogs: [],
+  loading: false,
+  error: null,
 };
 
-const doctorReducer = (state = initialState, action) => {
+const blogReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_DOCTOR_PROFILE:
-      return { ...state, profile: action.payload };
-
-      default:
+    case 'FETCH_BLOGS_SUCCESS':
+      return {
+        ...state,
+        blogs: action.payload,
+        loading: false,
+      };
+    case 'FETCH_BLOGS_FAILURE':
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    case 'ADD_BLOG':
+      return {
+        ...state,
+        blogs: [...state.blogs, action.payload],
+      };
+    default:
       return state;
   }
 };
 
-export default doctorReducer;
+export default blogReducer;

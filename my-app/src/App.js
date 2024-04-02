@@ -11,7 +11,8 @@ import Admin from './components/Admin';
 import Chat from './components/chat';
 import BlogList from './components/blogList/BlogList';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Reviews from './components/Reviews';
+import PostBlog from './components/DoctorProfile/PostBlog';
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,8 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/bloglist" element={<BlogList />} />
+        <Route path="/postblog" element={<PostBlog />} />
+
         </Routes>
     </div>
   );
