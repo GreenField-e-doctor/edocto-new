@@ -11,7 +11,8 @@ export const login = (Email, Password) => {
       const { user, token } = response.data;
       localStorage.setItem("token", token);
       localStorage.setItem("userType", user.UserType);
-      localStorage.setItem("userId",user.id );
+      localStorage.setItem("userId", user.id);
+      localStorage.setItem("user", JSON.stringify(user)); // Store user object as a string
       
       dispatch({ type: "LOGIN_SUCCESS", payload: { user, token } });
       console.log(response.data);
