@@ -9,15 +9,15 @@ import DoctorProfilePage from './components/DoctorProfile/DoctorProfilePage';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
-import OneBlog from './components/blog';
-
+import BlogList from './components/blogList/BlogList';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
+import PostBlog from './components/DoctorProfile/PostBlog';
 function App() {
   return (
     <div className="App">
-      <OneBlog/>
-      {/* <Routes>
+      {/* <OneBlog/> */}
+       {/* <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />  
@@ -27,7 +27,9 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         </Routes>
         <Route path="/doctor"  element={<DoctorProfilePage />} />
-        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/bloglist" element={<BlogList />} />
+        <Route path="/postblog" element={<PostBlog />} />
+
         </Routes> */}
     </div>
   );

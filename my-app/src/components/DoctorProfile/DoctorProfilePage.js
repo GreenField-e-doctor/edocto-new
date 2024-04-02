@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import DoctorInfo from '../DoctorInfo/DoctorInfo';
 import Rating from 'react-rating-stars-component';
 import { Modal, Button, Form } from 'react-bootstrap';
-import profileImage from './image_16.png'; // Make sure the path is correct
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import profileImage from './image_16.png'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './DoctorProfile.css';
 import Reviews from '../Reviews';
+// import PostBlog from './PostBlog'
 
 const DoctorProfilePage = () => {
 
@@ -76,6 +77,9 @@ const DoctorProfilePage = () => {
               <Button variant="primary" onClick={handleShowPasswordModal}>Change Password</Button>
               <Button variant="primary" onClick={()=>setIsReview(false)}>Appointments</Button>
             </li>
+            <li className="nav-item">
+          <button onClick={() => navigate('/postblog')} className="btn btn-primary">Post Blog</button>
+        </li>
             <li className="nav-item">
               <a className="nav-link" onClick={() => navigate('/notifications')}>Notifications</a>
             </li>
