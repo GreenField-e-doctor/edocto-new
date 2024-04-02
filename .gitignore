@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
-logs
-*.log
-
-
-=======
+# node etc
 ### node etc ###
 
 # Logs
@@ -12,7 +6,6 @@ logs
 *.log
 
 # Runtime data
->>>>>>> b5d6973cef1ec3a631bfeb604f21103f6d660ceb
 pids
 *.pid
 *.seed
@@ -40,4 +33,5 @@ bower_components/
 .floo
 .floobit
 .floo
+.flooignore
 .flooignore

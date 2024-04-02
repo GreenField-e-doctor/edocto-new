@@ -9,6 +9,9 @@ import DoctorProfilePage from './components/DoctorProfile/DoctorProfilePage';
 import './App.css';
 import Admin from './components/Admin';
 import Chat from './components/chat';
+import Doctorlist from './components/Doctorlist';
+import Doctorcards from './components/Doctorcards';
+import BlogList from './components/blogList/BlogList';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
 import Categories from './components/Categories';
@@ -16,6 +19,7 @@ import DoctorComponent from './components/doctorComponent';
 function App() {
   return (
     <div className="App">
+    
       <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
@@ -24,9 +28,15 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
+    
         <Route path="/doctor"  element={<DoctorProfilePage />} />
+        <Route path="/bloglist" element={<BlogList />} />
+        
+
+        <Route path="/doctorlist" element={<Doctorlist />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/doctorcards" element={<Doctorcards />} />
 
         </Routes>
     </div>
