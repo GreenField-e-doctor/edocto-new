@@ -178,7 +178,7 @@ const Blog = sequelize.define('Blog', {
     allowNull: false,
   },
   ImageUrl: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: true,
   },
 });
