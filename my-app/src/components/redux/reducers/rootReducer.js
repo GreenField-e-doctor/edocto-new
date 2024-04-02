@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import doctorReducer from './doctorReducer';
+import blogReducer from './blogSlice';
 
 const rootReducer = combineReducers({
-  doctor: doctorReducer,
+  blog: blogReducer,
 });
 
 export default rootReducer;
