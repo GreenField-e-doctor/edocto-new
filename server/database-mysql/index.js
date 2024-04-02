@@ -1,12 +1,20 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'Amine', 'wess2004wess', {
+const sequelize = new Sequelize('edoctor', 'root', 'Yeesou.33', {
   host: 'localhost',
   dialect: 'mysql',
 });
 
 
 const User = sequelize.define('User', {
+  FirstName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  LastName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 
   Username: {
     type: DataTypes.STRING,
@@ -24,9 +32,22 @@ const User = sequelize.define('User', {
   },
   UserType: {
     type: DataTypes.ENUM('Patient', 'Doctor'),
-    allowNull: false,
+    defaultValue: 'Patient',
   },
-});
+  Speciality: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  PhoneNumber: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  ImageUrl: {
+    type: DataTypes.STRING,
+    defaultValue: '',
+    allowNull: true
+  },
+})
 
 
 const Doctor = sequelize.define('Doctor', {
@@ -89,6 +110,10 @@ const Appointment = sequelize.define('Appointment', {
   PaymentStatus: {
     type: DataTypes.ENUM('Paid', 'Unpaid'),
     defaultValue: 'Unpaid',
+  },
+  AppointmentDepartment: {
+    type: DataTypes.STRING,
+  allowNull: false,
   },
 });
 
@@ -161,7 +186,7 @@ const Blog = sequelize.define('Blog', {
     allowNull: false,
   },
   ImageUrl: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: true,
   },
 });
@@ -172,6 +197,22 @@ const Comment = sequelize.define('Comment', {
     allowNull: false,
   },
 });
+
+const Product = sequelize.define('Product', {
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  price: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: false,
+  },
+  ImageUrl: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+});
+
 
 User.hasMany(RatingsComments);
 Doctor.hasMany(Appointment);
@@ -189,6 +230,7 @@ module.exports = {
   Payments,
   Message,
   Blog,
+  Product,
   Comment, // Add Comment to the exported modules
 };
 

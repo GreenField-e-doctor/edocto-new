@@ -6,14 +6,14 @@ const {User} = require('../database-mysql/index');
 
 exports.register = async (req, res) => {
     try {
-        const {UserType, Username, Email, Password,PhoneNumber,FirstName,LastName} = req.body;
+        const {UserType, Username, Email, Password,PhoneNumber,FirstName,LastName,Speciality,imageUrl} = req.body;
         if (!Password) {
             return res.status(400).json({ error: 'Password is required' });
         }
 
         const hashedPassword = await bcrypt.hash(Password, 10);
         const user = await User.create({ UserType ,
-            Username, Email, Password: hashedPassword,PhoneNumber,FirstName,LastName});
+            Username, Email, Password: hashedPassword,PhoneNumber,FirstName,LastName,Speciality,imageUrl});
         res.status(201).json({ user });
     } catch (error) {
         console.error(error);
