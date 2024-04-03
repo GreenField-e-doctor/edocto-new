@@ -8,6 +8,8 @@ import profileImage from './image_16.png';
 import './DoctorProfile.css';
 import Reviews from '../Reviews';
 // import PostBlog from './PostBlog'
+import Navbar from '../Navbar';
+import Footer from '../footer/Footer';
 
 const DoctorProfilePage = () => {
 
@@ -58,7 +60,8 @@ const DoctorProfilePage = () => {
   const handleShowProfileModal = () => setShowProfileModal(true);
   const handleCloseProfileModal = () => setShowProfileModal(false);
 
-  return (
+  return ( <div>
+    <Navbar />
     <div className="doctor-profile-container my-5">
       <img src={profileImage} alt="Profile" className="doctor-profile-picture" />
       <div className="row">
@@ -152,6 +155,8 @@ const DoctorProfilePage = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+    </div>
+    <Footer/>
     </div>
   );
 };

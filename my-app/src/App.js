@@ -16,6 +16,7 @@ import BlogList from './components/blogList/BlogList';
 import Reviews from './components/Reviews';
 import PostBlog from './components/DoctorProfile/PostBlog';
 import Oneblog from './components/blogList/blog'
+import PatientProfile from './components/PatientProfile';
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
         <Route path="/bloglist" element={<BlogList />} />
         <Route path="/postblog" element={<PostBlog />} />
         <Route path='bloglist/:blogId' element={<Oneblog/>} />
+        <Route path="/patient" element={<PatientProfile />} />
 
         </Routes>
     </div>

@@ -46,9 +46,15 @@ const Signup = () => {
       );
       console.log(response.data);
       setError("");
-
-      // Send greeting email
-      dispatch(sendSignupEmail(Email, FirstName));
+      
+      if(UserType === 'Doctor') {
+        console.log('1');
+        dispatch(sendSignupEmail(Email, Username, UserType, Specialization));
+      }
+      if(UserType === 'Patient') {
+        console.log("2");
+        dispatch(sendSignupEmail(Email, Username, UserType));
+      }
 
       navigate("/login");
     } catch (err) {

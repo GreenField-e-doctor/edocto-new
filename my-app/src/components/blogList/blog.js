@@ -4,6 +4,8 @@ import TextField from "@mui/material/TextField";
 import { useParams } from 'react-router-dom';
 import './BlogDetail.css';
 import axios from 'axios';
+import Navbar from '../Navbar';
+import Footer from '../footer/Footer';
 
 function OneBlog() {
   let { blogId } = useParams();
@@ -62,6 +64,7 @@ function OneBlog() {
 
   return (
     <div>
+      <Navbar />
       <div>
         <h2> {blog.Title}</h2>
         <br />
@@ -157,6 +160,7 @@ function OneBlog() {
           <input className='send' onClick={(e) => postComment(e)} type="submit" value="send Message " />
         </form>
       </div>
+      {/* <Footer /> */}
     </div>
   )
 }

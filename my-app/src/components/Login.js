@@ -21,13 +21,13 @@ const Login = ({ login, error }) => {
         }
         if(localStorage.getItem("userType")==='Doctor') {navigate('/doctor')}
         if(localStorage.getItem("userType")==='Patient') {navigate('/')}
-        // if(localStorage.getItem("token")) {navigate('/')}
+        
       }
   };
 
-  return (
-    <div>
-      <Navbar />
+  return ( <div>
+     <Navbar />
+    <div className='frmm'>
       <form onSubmit={HandleSubmit}>
         <h2 style={{color:'#007e85'}}>Login</h2>
         <div className="container">
@@ -47,6 +47,7 @@ const Login = ({ login, error }) => {
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <button style={{width:'300px'}}  type="submit">Login</button>
       </form>
+    </div>
     </div>
   );
 };
