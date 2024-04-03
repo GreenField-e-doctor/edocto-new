@@ -43,7 +43,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 app.use(cors())
 app.use('/api/messages', messagesRouter);
-
 app.use("/api/auth", Authentication);
 app.use('/api/doctors', doctorRouter);
 app.use("/api/Appointment", AppointmentRouter);
