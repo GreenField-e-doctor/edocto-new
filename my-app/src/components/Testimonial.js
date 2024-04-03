@@ -55,9 +55,12 @@ function Testimonial() {
     ))}
             </div>
             <div>
+              <br/>
+              <br/>
             <h1 style={{ color: '#007E85', textAlign: 'center' }}>Trusted by 10,000+ companies around the world</h1>
                < img src="https://i.ibb.co/FJqLdXY/Screen-Shot-2024-03-27-at-20-10-15.png" alt="Company Logos" style={{ width: '100%', height: 'auto', display: 'block', margin: '0 auto', marginTop: '20px' }} />
             </div>
+       
           
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
             <h1 style={{ color: '#333333', textAlign: 'center',fontSize:'24px' }}>Subscribe to our newsletter</h1>
