@@ -33,7 +33,7 @@ function App() {
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/bloglist" element={<BlogList />} />
         <Route path="/postblog" element={<PostBlog />} />
-        <Route path='/oneBlog' element={<Oneblog/>} />
+        <Route path='bloglist/:blogId' element={<Oneblog/>} />
 
         </Routes>
     </div>

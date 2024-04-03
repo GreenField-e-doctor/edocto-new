@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'root', 'Yeesou.33', {
+const sequelize = new Sequelize('edoctor', 'Amine', 'wess2004wess', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -189,7 +189,7 @@ const Blog = sequelize.define('Blog', {
     type: DataTypes.TEXT,
     allowNull: true,
   },
-});
+})
 
 const Comment = sequelize.define('Comment', {
 
@@ -198,14 +198,22 @@ const Comment = sequelize.define('Comment', {
     allowNull: false,
 
     },
-    content: {
+    comment: {
     type: DataTypes.TEXT,
     allowNull: false,
    
   },
     timestamp:{
       type: DataTypes.DATE, 
-    } 
+    },
+    BlogId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
     
 });
 

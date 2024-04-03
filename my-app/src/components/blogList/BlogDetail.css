@@ -1,6 +1,6 @@
 
 .imgBlogDetail{
-    height: 400px;
+    height: 350px;
     float: left;
     margin-left: 40px;
     border-radius: 12px;
@@ -66,7 +66,19 @@ padding-top:9
     display: flex;
 gap: 10px;
 }
-.LastBlogs{
+.LastBlogs1{
+    height: 60px;
+    margin-left: -250px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.LastBlogs2{
+    height: 60px;
+    margin-left: -250px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.LastBlogs3{
     height: 60px;
     margin-left: -250px;
     border-radius: 8px;
