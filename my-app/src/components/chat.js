@@ -24,7 +24,7 @@ function Chat() {
       console.error('Error fetching messages:', error);
     });
     socket.on('new_message', receiveMessage);
-    socket.on(' ', (data) => {
+    socket.on('new_message', (data) => {
       setMessages(prevMessages => [...prevMessages, data]);
     });
 
