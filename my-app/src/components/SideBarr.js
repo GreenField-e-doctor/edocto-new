@@ -1,10 +1,10 @@
-import '../css/SideBarr.css'
-import { Card,Typography,List, ListItem, ListItemPrefix,  ListItemSuffix,Chip,} from "@material-tailwind/react";
-import {PresentationChartBarIcon, ShoppingBagIcon,UserCircleIcon, Cog6ToothIcon, InboxIcon,PowerIcon,} from "@heroicons/react/24/solid";
+// import '../css/SideBarr.css'
+// import { Card,Typography,List, ListItem, ListItemPrefix,  ListItemSuffix,Chip,} from "@material-tailwind/react";
+// import {PresentationChartBarIcon, ShoppingBagIcon,UserCircleIcon, Cog6ToothIcon, InboxIcon,PowerIcon,} from "@heroicons/react/24/solid";
 function DefaultSidebar() {
   return (
-    <Card className="sidebar-container">
-    <div className="sidebar-title">Sidebar</div>
+    // <Card className="sidebar-container">
+    {/* <div className="sidebar-title">Sidebar</div>
     <List>
       <ListItem className="sidebar-list-item">
         <ListItemPrefix>
@@ -44,9 +44,9 @@ function DefaultSidebar() {
           <PowerIcon className="sidebar-icon" />
         </ListItemPrefix>
         Log Out
-      </ListItem>
-    </List>
-  </Card>
+      </ListItem> */}
+    /* </List> */
+  // </Card>
   
   );
 }

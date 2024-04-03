@@ -1,75 +1,81 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import PaymentFail from './PaymentFail';
+import PaymentSuccess from './PaymentSuccess';
 
-// const Page = () => {
-//   const [paymentStatus, setPaymentStatus] = useState('error');
+const Paymentcomponent = () => {
+  const [paymentStatus, setPaymentStatus] = useState('error');
+  const [link, setLink] = useState('');
+  const body = {
+    amount: 100,
+  };
+  useEffect(() => {
+    axios.post('http://localhost:3000/api/add', body)
+      .then((response) => {
+        setLink(response.data.result.link);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [])
 
-//   const handleTryAgain = async () => {
-//     try {
-//       // Make a request to the backend to initiate payment
-//       const response = await axios.post('/api/add', { amount: /* Your amount value here */ });
-//       console.log(response.data); // Handle the response accordingly
-//       setPaymentStatus('success');
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
+  const handleTryAgain = async (e) => {
+    try {
+      const response = await axios.post('http://localhost:3000/api/add', body);
+      console.log(response.data);
 
-//   return (
-//     <div className="container mx-auto px-4">
-//       <div className="flex items-center justify-center min-h-screen">
-//         <div className="w-8/12">
-//           {paymentStatus === 'error' && (
-//             <form className="ui large-form">
-//               <div className="ui icon negative message">
-//                 <i className="warning icon" />
-//                 <div className="content">
-//                   <div className="header">Oops! Something went wrong.</div>
-//                   <p>While trying to reserve money from your account</p>
-//                 </div>
-//               </div>
-//               <button
-//                 onClick={handleTryAgain}
-//                 className="w-full px-4 py-2 bg-teal-500 text-white text-lg font-bold uppercase rounded mt-4"
-//               >
-//                 Try again
-//               </button>
-//             </form>
-//           )}
+    } catch (error) {
+      console.error(error);
+      setPaymentStatus('error');
+    }
+  };
 
-//           {paymentStatus === 'success' && (
-//             <div className="bg-gray-100 h-screen">
-//               <div className="bg-white p-6 md:mx-auto">
-//                 <svg
-//                   viewBox="0 0 24 24"
-//                   className="text-green-600 w-16 h-16 mx-auto my-6"
-//                 >
-//                   <path
-//                     fill="currentColor"
-//                     d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
-//                   ></path>
-//                 </svg>
-//                 <div className="text-center">
-//                   <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-//                     Payment Done!
-//                   </h3>
-//                   <p className="text-gray-600 my-2">
-//                     Thank you for completing your secure online payment.
-//                   </p>
-//                   <p>Have a great day!</p>
-//                   <div className="py-10 text-center">
-//                     <a href="/client/dashboard/" className="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
-//                       CONTINUE SHOPPING
-//                     </a>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="container mx-auto px-4">
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="w-8/12 text-center">
+          <div style={{ marginBottom: '20px', marginTop: '50px' }}>
+            <img 
+              src="https://www.pngmart.com/files/7/Payment-PNG-Transparent.png" 
+              alt="Payment Avatar" 
+              style={{ width: '400px' }} 
+            />
+          </div>
+          {link && (
+            <div 
+              className="border border-solid border-customColor rounded-md px-2 py-1 inline-block"
+              style={{
+                backgroundColor: '#007E85',
+                color: 'white',
+                borderRadius: '5px',
+                textAlign: 'center',
+                fontSize: '25px',
+                // marginRight: '20px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                display: 'inline-block'
+              }}
+            >
+              <div style={{ marginTop: '10px' }}>
+                <a 
+                  href={link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    textDecoration: 'none',
+                    color: 'white',
+                  }}
+                >
+                  Click Here to Pay
+                </a>
+              </div>
+            </div>
+          )}
 
-// export default Page;
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Paymentcomponent ;
