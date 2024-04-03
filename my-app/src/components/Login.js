@@ -17,7 +17,9 @@ const Login = ({ login, error }) => {
       login(Email, Password);
       if(!error){
         if(Email === "admin@healthcare.com") navigate('/admin')
-        if(localStorage.getItem("token")) {navigate('/')}
+        if(localStorage.getItem("userType")==='Doctor') {navigate('/doctor')}
+        if(localStorage.getItem("userType")==='Patient') {navigate('/')}
+        // if(localStorage.getItem("token")) {navigate('/')}
         
         
       }

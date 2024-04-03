@@ -15,6 +15,7 @@ const Authentication = require('./routes/loginrouters');
 const nodeMailer = require('../server/controllers/nodeMailer');
 const cloudinary = require('cloudinary');
 const BlogRouter = require('./routes/Blog.routes');
+const ProductRouter = require('./routes/product.router');
 const CommentRouter = require('./routes/blogComments.router');
 const fileUpload = require('express-fileupload');
 const http = require('http');
@@ -88,6 +89,7 @@ app.use("/api/ratingComments", RatingCommentsRouter);
 app.use("/api/users", userRouter);
 app.use('/api/blogs', BlogRouter);
 app.use('/api/comments', CommentRouter);
+app.use('/api/products', ProductRouter);
 app.post('/api/upload', async (req, res) => {
   try {
     const fileStr = req.files.file.data.toString('base64'); 

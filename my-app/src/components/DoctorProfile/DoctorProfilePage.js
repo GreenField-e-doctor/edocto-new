@@ -4,7 +4,7 @@ import DoctorInfo from '../DoctorInfo/DoctorInfo';
 import Rating from 'react-rating-stars-component';
 import { Modal, Button, Form } from 'react-bootstrap';
 import profileImage from './image_16.png'; 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './DoctorProfile.css';
 import Reviews from '../Reviews';
 // import PostBlog from './PostBlog'
@@ -23,21 +23,30 @@ const DoctorProfilePage = () => {
       { author: "Jane Smith", comment: "Very thorough and kind.", rating: 5 },
       { author: "Doe John", comment: "Helpful and informative.", rating: 4 },
     ],
-    appointments: [
+    appointments : [
       { name: "Alice Wonderland", date: "2024-04-15, 10:00 AM", description: "Routine check-up", rating: 4 },
       { name: "Charlie Bucket", date: "2024-04-16, 11:00 AM", description: "Consultation", rating: 5 },
-    ],
+    ]
+   
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [isReview, setIsReview] = useState(false);
 
-
+  
 
   useEffect(() => {
-
-  }, [doctorData, searchQuery, showPasswordModal, showProfileModal, isReview])
+    const userString = localStorage.getItem('user');
+    const user = JSON.parse(userString);
+    console.log(user);
+    user.appointments = [
+      { name: "Alice Wonderland", date: "2024-04-15, 10:00 AM", description: "Routine check-up", rating: 4 },
+      { name: "Charlie Bucket", date: "2024-04-16, 11:00 AM", description: "Consultation", rating: 5 },
+    ]
+    console.log('fixed',user);
+    setDoctorData(user);
+  }, [, searchQuery, showPasswordModal, showProfileModal, isReview])
   const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
@@ -55,8 +64,8 @@ const DoctorProfilePage = () => {
       <div className="row">
         <div className="col-md-3">
           <DoctorInfo
-            name={doctorData.name}
-            specialty={doctorData.specialty}
+            name={doctorData.FirstName+" "+doctorData.LastName}
+            specialty='dental Care'
             picture={doctorData.imageUrl}
             ratings={doctorData.ratings}
           />
@@ -89,7 +98,7 @@ const DoctorProfilePage = () => {
           </ul>
           <div className="mt-4">
             <h5>Filtered Appointments</h5>
-            { isReview ? <Reviews/>:doctorData.appointments.filter(appointment => appointment.name.toLowerCase().includes(searchQuery.toLowerCase()) || appointment.description.toLowerCase().includes(searchQuery.toLowerCase())).map((appointment, index) => (
+            { isReview ? <Reviews/>: doctorData && doctorData.appointments.filter(appointment => appointment.name.toLowerCase().includes(searchQuery.toLowerCase()) || appointment.description.toLowerCase().includes(searchQuery.toLowerCase())).map((appointment, index) => (
               <div key={index} className="doctor-profile-card card mb-3">
                 <div className="card-body ">
                   <h5 className="card-title">{appointment.name}</h5>
@@ -131,8 +140,8 @@ const DoctorProfilePage = () => {
         </Modal.Header>
         <Modal.Body>
           <DoctorInfo
-            name={doctorData.name}
-            specialty={doctorData.specialty}
+            name={doctorData.FirstName + " " + doctorData.LastName}
+            specialty='dental Care'
             picture={doctorData.imageUrl}
             ratings={doctorData.ratings}
           />

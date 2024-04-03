@@ -6,17 +6,21 @@ import ReactStars from 'react-stars';
 function Reviews() {
     const dispatch = useDispatch();
     const data = useSelector((state) => state.reviews.reviews);
+    const userId =localStorage.getItem('userId'); 
+
     useEffect(() => {
         dispatch(fetchReviews());
-    }, [dispatch]);// eslint-disable-line
+        console.log(userId);
+    }, [dispatch]);
     
-   
-
+    // const filteredData = data.filter(item => item.userId === userId);
+    const filteredData = data;
+    
     return (
         <div style={{ width: '80%', margin: '0 auto' }}>
         
-            {console.log(data)}
-            {data.map((item, index) => (
+            {console.log(filteredData)}
+            {filteredData.map((item, index) => (
                 <div key={index} style={{ marginBottom: '20px', border: '1px solid #ccc', borderRadius: '10px', padding: '20px', boxShadow: '0 2px 5px rgba(0,0,0,0.15)' }}>
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
                         <img src={item.imageSrc} alt="Reviewer" style={{ width: '70px', height: '70px', borderRadius: '50%', marginRight: '20px', objectFit: 'cover' }} />

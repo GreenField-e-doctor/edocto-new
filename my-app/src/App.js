@@ -17,10 +17,16 @@ import Paymentcomponent from "./components/Paymentcomponent"
 import PaymentFail from './components/PaymentFail';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import PostBlog from './components/DoctorProfile/PostBlog';
+import Reviews from './components/Reviews';
+// import PostBlog from './components/DoctorProfile/PostBlog';
+// import Oneblog from './components/blogList/blog'
 function App() {
   return (
     <div className="App">
     <Routes>
+    
+        <Routes>
+          
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
@@ -28,6 +34,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
+      
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/doctorlist" element={<Doctorlist />} />
         {/* <Route path="/reviews" element={<Reviews />} /> */}
@@ -39,6 +46,11 @@ function App() {
         <Route path="/payment" element={<Paymentcomponent />} />
         <Route path="/paymentfail" element={<PaymentFail />} />
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+        </Routes>
+        {/* <Route path="/bloglist" element={<BlogList />} /> */}
+        {/* <Route path="/postblog" element={<PostBlog />} /> */}
+        {/* <Route path='bloglist/:blogId' element={<Oneblog/>} /> */}
+
         </Routes>
     </div>
   );

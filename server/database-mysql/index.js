@@ -7,6 +7,14 @@ const sequelize = new Sequelize('edoctor', 'Amine', 'wess2004wess', {
 
 
 const User = sequelize.define('User', {
+  FirstName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  LastName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 
   Username: {
     type: DataTypes.STRING,
@@ -24,9 +32,22 @@ const User = sequelize.define('User', {
   },
   UserType: {
     type: DataTypes.ENUM('Patient', 'Doctor'),
-    allowNull: false,
+    defaultValue: 'Patient',
   },
-});
+  Speciality: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  PhoneNumber: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  ImageUrl: {
+    type: DataTypes.STRING,
+    defaultValue: '',
+    allowNull: true
+  },
+})
 
 
 const Doctor = sequelize.define('Doctor', {
@@ -89,6 +110,10 @@ const Appointment = sequelize.define('Appointment', {
   PaymentStatus: {
     type: DataTypes.ENUM('Paid', 'Unpaid'),
     defaultValue: 'Unpaid',
+  },
+  AppointmentDepartment: {
+    type: DataTypes.STRING,
+  allowNull: false,
   },
 });
 
@@ -161,17 +186,52 @@ const Blog = sequelize.define('Blog', {
     allowNull: false,
   },
   ImageUrl: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+})
+
+const Comment = sequelize.define('Comment', {
+
+  author:{
+      type: DataTypes.TEXT,
+    allowNull: false,
+
+    },
+    comment: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+   
+  },
+    timestamp:{
+      type: DataTypes.DATE, 
+    },
+    BlogId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
+    
+});
+
+const Product = sequelize.define('Product', {
+  name: {
     type: DataTypes.STRING,
+    allowNull: false,
+  },
+  price: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: false,
+  },
+  ImageUrl: {
+    type: DataTypes.TEXT,
     allowNull: true,
   },
 });
 
-const Comment = sequelize.define('Comment', {
-  Text: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-});
 
 User.hasMany(RatingsComments);
 Doctor.hasMany(Appointment);
@@ -189,6 +249,7 @@ module.exports = {
   Payments,
   Message,
   Blog,
+  Product,
   Comment, // Add Comment to the exported modules
 };
 
