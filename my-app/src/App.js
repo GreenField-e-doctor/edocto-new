@@ -14,13 +14,14 @@ import Doctorcards from './components/Doctorcards';
 import BlogList from './components/blogList/BlogList';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Reviews from './components/Reviews';
-import Categories from './components/Categories';
-import DoctorComponent from './components/doctorComponent';
+import PostBlog from './components/DoctorProfile/PostBlog';
+import Oneblog from './components/blogList/blog'
 function App() {
   return (
     <div className="App">
     
-      <Routes>
+        <Routes>
+          
         <Route path="/" element={<Home />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />  
@@ -28,15 +29,11 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
-    
+      
         <Route path="/doctor"  element={<DoctorProfilePage />} />
         <Route path="/bloglist" element={<BlogList />} />
-        
-
-        <Route path="/doctorlist" element={<Doctorlist />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/doctorcards" element={<Doctorcards />} />
+        <Route path="/postblog" element={<PostBlog />} />
+        <Route path='bloglist/:blogId' element={<Oneblog/>} />
 
         </Routes>
     </div>
