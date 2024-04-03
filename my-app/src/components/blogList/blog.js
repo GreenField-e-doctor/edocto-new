@@ -1,9 +1,10 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import TextField from "@mui/material/TextField";
+import './BlogDetail.css';
 // import dummyBlogs from './dummyBlogs'; 
 
-import './BlogDetail.css'
+
 const dummyComments = [
   {
     id: 1,
@@ -51,7 +52,7 @@ function OneBlog() {
       sx={{ border: '2px solid grey' }}
     >
       
-        <div className="search">
+        <div className="searchBlog">
        
        
         <TextField
