@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { DatePicker, TimePicker } from "antd";
 import FaqPage from "./FaqPage";
 import { json } from "react-router-dom";
+// import Payment from "./Paymentcomponent.js"
 
 const Container = styled.div`
   background-image: url("https://s3-alpha-sig.figma.com/img/29a1/83e9/4cfaa1c70f9923b9dff53e831733a031?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BPb4iKFpTXsTfzPGJ1UT0k7s5GcYe70I9fmj0E1ha539XGmpRHJu50Wxv-Ecscl~VMqej~MTo8vlyDFUK0mfVD~RWIgy~uZAN8IMAemXPEjBmAQgQgxhlS4fde5YX5sxmc1HtdTeuAgdENZlQ3JbUxf-KHsF~r-Yi1oUl2vWrP-AZ1oPGCEqE3CFh9BGRVCXIphLDTM1WZMDTINSU2AtNJmDCxx4kpF4qeN7w7UyPJSPKq-S6sVwn494l~ftSFtuvPcw4-XeDl-mGOFpjjfo2VCSX1ANAjQh-JuLPsKK97j3All0emM03tnmferVVu3JSWd1tCJetOVk0qUSTr6~pQ__");
@@ -217,10 +218,9 @@ function BookApp() {
               marginLeft: "30px",
               fontSize: "16px",
             }}
-            onClick={() => navigate("/chat")}
+            onClick={() => navigate("/payment")}
           >
-            Connect With a doctor 
-          </button> */}
+ pay          </button> */}
         </Content>
 
         <Form

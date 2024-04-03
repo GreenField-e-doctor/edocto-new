@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'root', 'route', {
+const sequelize = new Sequelize('edoctor', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql',
 });

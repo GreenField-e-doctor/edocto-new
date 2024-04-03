@@ -40,7 +40,7 @@ const Login = ({ login, error }) => {
             />
           </div>
           <div className="form"></div>
-          <input type="email" placeholder="Email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
+          <input  type="email" placeholder="Email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div>
           <input type="password" placeholder="Password" value={Password} onChange={(e) => setPassword(e.target.value)} required />
