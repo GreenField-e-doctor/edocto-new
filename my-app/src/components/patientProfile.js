@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
-import './patientProfile.css'; // Import CSS file
+import '../css/test.css'; // Import CSS file
 
 const ProfileComponent = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -18,7 +18,7 @@ const ProfileComponent = () => {
   const [showImage, setShowImage] = useState(true); // State variable to toggle image visibility
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/users/get/1')
+    axios.get('http://localhost:3000/api/users/1')
       .then(response => {
         setUserData(response.data);
         setUpdatedUserData(response.data);
@@ -120,14 +120,18 @@ const ProfileComponent = () => {
             <div className="profile-settings tab" style={{ display: activeTab === 2 ? 'block' : 'none' }}>
               <div className="account-setting">
                 <h1>Account Settings</h1>
-                <form onSubmit={handleSubmit}>
-                  <input className="input-field" type="text" name="Username" value={updatedUserData.Username} onChange={handleInputChange} placeholder="Username" />
-                  <input className="input-field" id="email" type="email" name="Email" value={updatedUserData.Email} onChange={handleInputChange} placeholder="Email" />
-                  <textarea className="input-field" name="bio" value={updatedUserData.bio} onChange={handleInputChange} placeholder="Bio"></textarea>
-                  <input className="input-field" id="phone" type="text" name="phoneNumber" value={updatedUserData.phoneNumber} onChange={handleInputChange} placeholder="Phone Number" />
-                  <input className="input-field" type="text" name="Adress" value={updatedUserData.Adress} onChange={handleInputChange} placeholder="Address" />
-                  <button className='button-3' type="submit">Update</button>
-                </form>
+                <div className='ss'>
+                  <form onSubmit={handleSubmit}>
+                    <input className="input-field" type="text" name="Username" value={updatedUserData.Username} onChange={handleInputChange} placeholder="Username" />
+                    <input className="input-field" id="email" type="email" name="Email" value={updatedUserData.Email} onChange={handleInputChange} placeholder="Email" />
+                    <textarea className="input-field" name="bio" value={updatedUserData.bio} onChange={handleInputChange} placeholder="Bio"></textarea>
+                    <input className="input-field" id="phone" type="text" name="phoneNumber" value={updatedUserData.phoneNumber} onChange={handleInputChange} placeholder="Phone Number" />
+
+                    <input className="input-field" type="text" name="Adress" value={updatedUserData.Adress} onChange={handleInputChange} placeholder="Address" />
+                    <input className="input-field" id='pass' type="password" name="password" value={updatedUserData.Password} onChange={handleInputChange} placeholder="new password" />
+                    <button className='button-3' type="submit">Update</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

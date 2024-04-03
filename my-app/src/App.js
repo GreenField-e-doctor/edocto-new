@@ -16,6 +16,7 @@ import BlogList from './components/blogList/BlogList';
 import Reviews from './components/Reviews';
 import Categories from './components/Categories';
 import DoctorComponent from './components/doctorComponent';
+import PatientProfile from './components/patientProfile'
 function App() {
   return (
     <div className="App">
@@ -37,6 +38,8 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/doctorcards" element={<Doctorcards />} />
+        <Route path="/PatientProfile" element={<PatientProfile />} />
+
 
         </Routes>
     </div>

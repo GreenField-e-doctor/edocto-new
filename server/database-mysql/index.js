@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('edoctor', 'root', 'Yeesou.33', {
+const sequelize = new Sequelize('edoctor', 'root', 'route', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -38,11 +38,19 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  PhoneNumber: {
+  phoneNumber: {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  ImageUrl: {
+  bio: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  adress: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  Avatar: {
     type: DataTypes.STRING,
     defaultValue: '',
     allowNull: true
@@ -95,8 +103,8 @@ const Message = sequelize.define('Message', {
     allowNull: false,
   },
 
- 
-  });
+
+});
 
 const Appointment = sequelize.define('Appointment', {
 
@@ -113,7 +121,7 @@ const Appointment = sequelize.define('Appointment', {
   },
   AppointmentDepartment: {
     type: DataTypes.STRING,
-  allowNull: false,
+    allowNull: false,
   },
 });
 
@@ -126,7 +134,7 @@ const RatingsComments = sequelize.define('RatingsComments', {
   review: {
     type: DataTypes.TEXT,
   },
-  imageSrc: { 
+  imageSrc: {
     type: DataTypes.TEXT,
     allowNull: true,
   },
@@ -134,19 +142,19 @@ const RatingsComments = sequelize.define('RatingsComments', {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  }
-  
+}
+
 );
 
-  //         "imageSrc": "https://s3-alpha-sig.figma.com/img/0577/f0e9/b7fca2f32639871454da0de95f951709?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JNqy~MgzfTYiIFcizL-nr-Wr6ojSHe5uLBKQ1mvSOq71xqvn5SZa0JnKg4PqsxU3OyopZW3D797~muYI6V3nfsJusTlzfVJb7~dTmI3JTR43RFEFD-8LrRIhvSQnuMzD6Si7Z75gDgN6q6S8qNKoFbnbxloe-QIGIy-VmyUAgCDFfeMUlnO5olljOaKAYissbOtELqaFbwrJjoQfxwYmVnNjC7qKEQSmhyExt2VRnKeLEJiWE2e1IsdMJjW1U7PtWkXUACSEa9jIvKcy-AGsrUpT~0YqNYMkNQMNGYe5mWVyqSMox0-I4XfCjYOWKDhcF~neWYMkjQgy7tjmKgoaZg__",
-  //         "name": "Dr. Sarah Johnson",
-  //         "rating": 5,
-  //         "review": "Excellent service! Dr. Johnson was very knowledgeable and provided clear explanations."
+//         "imageSrc": "https://s3-alpha-sig.figma.com/img/0577/f0e9/b7fca2f32639871454da0de95f951709?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JNqy~MgzfTYiIFcizL-nr-Wr6ojSHe5uLBKQ1mvSOq71xqvn5SZa0JnKg4PqsxU3OyopZW3D797~muYI6V3nfsJusTlzfVJb7~dTmI3JTR43RFEFD-8LrRIhvSQnuMzD6Si7Z75gDgN6q6S8qNKoFbnbxloe-QIGIy-VmyUAgCDFfeMUlnO5olljOaKAYissbOtELqaFbwrJjoQfxwYmVnNjC7qKEQSmhyExt2VRnKeLEJiWE2e1IsdMJjW1U7PtWkXUACSEa9jIvKcy-AGsrUpT~0YqNYMkNQMNGYe5mWVyqSMox0-I4XfCjYOWKDhcF~neWYMkjQgy7tjmKgoaZg__",
+//         "name": "Dr. Sarah Johnson",
+//         "rating": 5,
+//         "review": "Excellent service! Dr. Johnson was very knowledgeable and provided clear explanations."
 
 
 
 const Admin = sequelize.define('Admin', {
- 
+
   Username: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -175,7 +183,7 @@ const Payments = sequelize.define('Payments', {
 });
 
 
-  
+
 const Blog = sequelize.define('Blog', {
   Title: {
     type: DataTypes.STRING,
@@ -219,7 +227,7 @@ Doctor.hasMany(Appointment);
 User.hasMany(Appointment);
 User.hasMany(Blog);
 Blog.belongsTo(User);
-Blog.hasMany(Comment); 
+Blog.hasMany(Comment);
 Comment.belongsTo(Blog);
 
 module.exports = {
@@ -234,12 +242,12 @@ module.exports = {
   Comment, // Add Comment to the exported modules
 };
 
-// sequelize.sync()
-//   .then(() => {
-//     console.log('Database and tables created!');
-//   })
-//   .catch((error) => {
-//     console.error('Error creating database and/or tables:', error);
-//   });
+sequelize.sync()
+  .then(() => {
+    console.log('Database and tables created!');
+  })
+  .catch((error) => {
+    console.error('Error creating database and/or tables:', error);
+  });
 
 
