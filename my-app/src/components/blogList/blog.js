@@ -53,9 +53,7 @@ function OneBlog() {
       
         <div className="search">
        
-        <div>
-      
-    </div>
+       
         <TextField
           id="outlined-basic"
           variant="outlined"

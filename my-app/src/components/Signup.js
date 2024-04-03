@@ -37,6 +37,8 @@ const Signup = () => {
         FirstName: FirstName,
         LastName: LastName,
         PhoneNumber: PhoneNumber,
+        imageUrl: image,
+        Speciality: Specialization,
       };
       const response = await axios.post(
         "http://localhost:3000/api/auth/register",
