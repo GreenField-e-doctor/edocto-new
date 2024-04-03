@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize('edoctor', 'root', 'root', {
+const sequelize = new Sequelize('edoctor', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -197,13 +198,32 @@ const Blog = sequelize.define('Blog', {
     type: DataTypes.TEXT,
     allowNull: true,
   },
-});
+})
 
 const Comment = sequelize.define('Comment', {
-  Text: {
+
+  author:{
+      type: DataTypes.TEXT,
+    allowNull: false,
+
+    },
+    comment: {
     type: DataTypes.TEXT,
     allowNull: false,
+   
   },
+    timestamp:{
+      type: DataTypes.DATE, 
+    },
+    BlogId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
+    
 });
 
 const Product = sequelize.define('Product', {
@@ -484,6 +504,10 @@ const Product = sequelize.define('Product', {
     type: DataTypes.TEXT,
     allowNull: true,
   },
+  Category: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
 });
 
 
@@ -504,7 +528,7 @@ module.exports = {
   Message,
   Blog,
   Product,
-  Comment, // Add Comment to the exported modules
+  Comment,
 };
 
 // sequelize.sync()
