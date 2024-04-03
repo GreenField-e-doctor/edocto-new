@@ -8,9 +8,11 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { sendAppointmentEmail } from "./redux/actions/emailActions";
 import { useNavigate } from "react-router-dom";
-import { DatePicker, TimePicker } from "antd";
+import { DatePicker, TimePicker, Form } from "antd";
 import FaqPage from "./FaqPage";
 import { json } from "react-router-dom";
+
+
 
 const Container = styled.div`
   background-image: url("https://s3-alpha-sig.figma.com/img/29a1/83e9/4cfaa1c70f9923b9dff53e831733a031?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BPb4iKFpTXsTfzPGJ1UT0k7s5GcYe70I9fmj0E1ha539XGmpRHJu50Wxv-Ecscl~VMqej~MTo8vlyDFUK0mfVD~RWIgy~uZAN8IMAemXPEjBmAQgQgxhlS4fde5YX5sxmc1HtdTeuAgdENZlQ3JbUxf-KHsF~r-Yi1oUl2vWrP-AZ1oPGCEqE3CFh9BGRVCXIphLDTM1WZMDTINSU2AtNJmDCxx4kpF4qeN7w7UyPJSPKq-S6sVwn494l~ftSFtuvPcw4-XeDl-mGOFpjjfo2VCSX1ANAjQh-JuLPsKK97j3All0emM03tnmferVVu3JSWd1tCJetOVk0qUSTr6~pQ__");
@@ -28,7 +30,7 @@ const Content = styled.div`
   font-weight: bold;
 `;
 
-const Form = styled.form`
+const Form1 = styled.form`
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
@@ -65,6 +67,12 @@ function BookApp() {
   const [department, setDepartment] = useState("");
   const [time, setTime] = useState("");
   const [userId, setUserId] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange1 = (date) => {
+    setSelectedDate(date);
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -223,7 +231,7 @@ function BookApp() {
           </button> */}
         </Content>
 
-        <Form
+        <Form1
           style={{
             backgroundColor: "white",
             padding: "20px",
@@ -310,13 +318,15 @@ function BookApp() {
             ))}
           </select>
           <br />
-          <DatePicker
-            style={{  marginBottom: "10px",width: "180px",padding: "5px", borderRadius: "11px", border: "1px solid #ccc"
+        
+          <Form.Item>
+  <DatePicker
+    format="MMMM Do YYYY"
+    style={{ width: "180px", padding: "5px", borderRadius: "11px", border: "1px solid #ccc" }}
+    onChange={handleDateChange}
+  />
+</Form.Item>
 
-
-          }}
-            onChange={handleDateChange}
-          />
           <input
             type="time"
             value={time}
@@ -338,7 +348,7 @@ function BookApp() {
           >
             Submit
           </SubmitButton>
-        </Form>
+        </Form1>
       </Container>
       <br />
       <br />

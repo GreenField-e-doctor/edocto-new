@@ -113,8 +113,12 @@ const Appointment = sequelize.define('Appointment', {
   },
   AppointmentDepartment: {
     type: DataTypes.STRING,
-  allowNull: false,
+  allowNull: true,
   },
+  Doctor: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
 });
 
 
@@ -137,11 +141,6 @@ const RatingsComments = sequelize.define('RatingsComments', {
   }
   
 );
-
-  //         "imageSrc": "https://s3-alpha-sig.figma.com/img/0577/f0e9/b7fca2f32639871454da0de95f951709?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JNqy~MgzfTYiIFcizL-nr-Wr6ojSHe5uLBKQ1mvSOq71xqvn5SZa0JnKg4PqsxU3OyopZW3D797~muYI6V3nfsJusTlzfVJb7~dTmI3JTR43RFEFD-8LrRIhvSQnuMzD6Si7Z75gDgN6q6S8qNKoFbnbxloe-QIGIy-VmyUAgCDFfeMUlnO5olljOaKAYissbOtELqaFbwrJjoQfxwYmVnNjC7qKEQSmhyExt2VRnKeLEJiWE2e1IsdMJjW1U7PtWkXUACSEa9jIvKcy-AGsrUpT~0YqNYMkNQMNGYe5mWVyqSMox0-I4XfCjYOWKDhcF~neWYMkjQgy7tjmKgoaZg__",
-  //         "name": "Dr. Sarah Johnson",
-  //         "rating": 5,
-  //         "review": "Excellent service! Dr. Johnson was very knowledgeable and provided clear explanations."
 
 
 
@@ -215,7 +214,6 @@ const Product = sequelize.define('Product', {
 
 
 User.hasMany(RatingsComments);
-Doctor.hasMany(Appointment);
 User.hasMany(Appointment);
 User.hasMany(Blog);
 Blog.belongsTo(User);

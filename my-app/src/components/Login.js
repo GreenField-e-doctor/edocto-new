@@ -16,14 +16,13 @@ const Login = ({ login, error }) => {
       e.preventDefault();
       login(Email, Password);
       if(!error){
-        if(Email === "admin@healthcare.com") navigate('/admin')
+        if(Email === "admin@healthcare.com") {
+          window.location.href = 'http://localhost:5000/#/dashboard'
+        }
         if(localStorage.getItem("userType")==='Doctor') {navigate('/doctor')}
         if(localStorage.getItem("userType")==='Patient') {navigate('/')}
         // if(localStorage.getItem("token")) {navigate('/')}
-        
-        
       }
-    
   };
 
   return (
@@ -40,13 +39,13 @@ const Login = ({ login, error }) => {
             />
           </div>
           <div className="form"></div>
-          <input type="email" placeholder="Email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
+          <input style={{width:'300px'}} type="email" placeholder="Email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div>
-          <input type="password" placeholder="Password" value={Password} onChange={(e) => setPassword(e.target.value)} required />
+          <input style={{width:'300px'}}  type="password" placeholder="Password" value={Password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Login</button>
+        <button style={{width:'300px'}}  type="submit">Login</button>
       </form>
     </div>
   );

@@ -16,6 +16,8 @@ import BlogList from './components/blogList/BlogList';
 import Reviews from './components/Reviews';
 import Categories from './components/Categories';
 import DoctorComponent from './components/doctorComponent';
+import BookForm from './components/BookForm';
+import Doctor from './components/doctor';
 function App() {
   return (
     <div className="App">
@@ -29,7 +31,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
     
-        <Route path="/doctor"  element={<DoctorProfilePage />} />
+        <Route path="/doctorProfile"  element={<DoctorProfilePage />} />
         <Route path="/bloglist" element={<BlogList />} />
         
 
@@ -37,6 +39,7 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/doctorcards" element={<Doctorcards />} />
+        <Route path="/doctor" element={<Doctor />} />
 
         </Routes>
     </div>

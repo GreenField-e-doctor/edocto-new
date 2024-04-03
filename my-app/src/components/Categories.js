@@ -39,7 +39,6 @@ function Categories() {
 
   return (
     <div>
-      <Navbar />
       <div style={{ backgroundColor: "#ECECEC", margin: 0, padding: 0 }}>
         <h1 style={{ color: "#007E85", textAlign: "center" }}>Explore By Categories</h1>
         <br />
@@ -99,8 +98,7 @@ function Categories() {
             <img src="https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fabout-2.png&w=3840&q=75" alt="description_here" style={{ width: '500px', height: '500px' }} />
             
           </div>
-          <DoctorComponent />
-      <Footer />
+       
     </div>
   )
 }
