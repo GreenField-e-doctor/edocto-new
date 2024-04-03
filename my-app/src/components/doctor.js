@@ -22,6 +22,7 @@ function Doctor() {
     const [searchClicked, setSearchClicked] = useState(false);
     const [searchValue, setSearchValue] = useState("");
     const [error,setError]  = useState(false);
+    const [tempDoctors, setTempDoctors] = useState([])
 
   useEffect(() => {
     getDoctors();
@@ -35,12 +36,14 @@ function Doctor() {
       return doctor.UserType === "Doctor";
     });
     setDoctors(data);
+    setTempDoctors(data);
   };
   
   const handleBookClick = () => {
     setShowModal(true);
   };
- const handleSearchClick = () => {
+ const handleSearchClick = async () => {
+   await setDoctors(tempDoctors);
         let temp = doctors.filter((doctor) => {
             return doctor.FirstName.toLowerCase().includes(searchValue.toLowerCase());
         })

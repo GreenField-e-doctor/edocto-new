@@ -72,6 +72,11 @@ function Navbar() {
             Pharmacy
           </a>
         </Link>
+        <Link to={"/doctorlist"}>
+          <a className="Contact" href="">
+            Doctors
+          </a>
+        </Link>
       
         <Link to={temp}>
           <a className="Contact" href="">

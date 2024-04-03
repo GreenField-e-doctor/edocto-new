@@ -11,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { DatePicker, TimePicker, Form } from "antd";
 import FaqPage from "./FaqPage";
 import { json } from "react-router-dom";
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment'
+import '../css/calendar.css';
 
 
 
@@ -68,7 +71,176 @@ function BookApp() {
   const [time, setTime] = useState("");
   const [userId, setUserId] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
-
+  const localizer = momentLocalizer(moment);
+  const myEventsList = [
+    {
+      start: new Date(2024, 3, 4, 9, 0),
+      end: new Date(2024, 3, 4, 12, 0),
+      title: "Dr. Smith's Availability",
+      color: "#5cb85c" // Green color
+    },
+    {
+      start: new Date(2024, 3, 5, 14, 0),
+      end: new Date(2024, 3, 5, 18, 0),
+      title: "Dr. Johnson's Availability",
+      color: "#f0ad4e" // Orange color
+    },
+    {
+      start: new Date(2024, 3, 6, 10, 0),
+      end: new Date(2024, 3, 6, 13, 0),
+      title: "Dr. Williams's Availability",
+      color: "#5bc0de" // Blue color
+    },
+    {
+      start: new Date(2024, 3, 7, 9, 0),
+      end: new Date(2024, 3, 7, 12, 0),
+      title: "Dr. Brown's Availability",
+      color: "#d9534f" // Red color
+    },
+    {
+      start: new Date(2024, 3, 8, 15, 0),
+      end: new Date(2024, 3, 8, 19, 0),
+      title: "Dr. Lee's Availability",
+      color: "#5cb85c" // Green color
+    },
+    {
+      start: new Date(2024, 3, 9, 8, 0),
+      end: new Date(2024, 3, 9, 11, 0),
+      title: "Dr. Garcia's Availability",
+      color: "#f0ad4e" // Orange color
+    },
+    {
+      start: new Date(2024, 3, 10, 13, 0),
+      end: new Date(2024, 3, 10, 17, 0),
+      title: "Dr. Martinez's Availability",
+      color: "#5bc0de" // Blue color
+    },
+    {
+      start: new Date(2024, 3, 11, 9, 0),
+      end: new Date(2024, 3, 11, 12, 0),
+      title: "Dr. Nguyen's Availability",
+      color: "#d9534f" // Red color
+    },
+    {
+      start: new Date(2024, 3, 12, 14, 0),
+      end: new Date(2024, 3, 12, 18, 0),
+      title: "Dr. Kim's Availability",
+      color: "#428bca" // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 13, 10, 0),
+      end: new Date(2024, 3, 13, 13, 0),
+      title: "Dr. Rodriguez's Availability",
+      color: "#5cb85c" // Green color
+    },
+    {
+      start: new Date(2024, 3, 14, 8, 0),
+      end: new Date(2024, 3, 14, 11, 0),
+      title: "Dr. Hernandez's Availability",
+      color: "#f0ad4e" // Orange color
+    },
+    {
+      start: new Date(2024, 3, 15, 13, 0),
+      end: new Date(2024, 3, 15, 17, 0),
+      title: "Dr. Patel's Availability",
+      color: "#5bc0de" // Blue color
+    },
+    {
+      start: new Date(2024, 3, 16, 9, 0),
+      end: new Date(2024, 3, 16, 12, 0),
+      title: "Dr. Clark's Availability",
+      color: "#d9534f" // Red color
+    },
+    {
+      start: new Date(2024, 3, 17, 15, 0),
+      end: new Date(2024, 3, 17, 19, 0),
+      title: "Dr. King's Availability",
+      color: "#428bca" // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 18, 8, 0),
+      end: new Date(2024, 3, 18, 11, 0),
+      title: "Dr. Young's Availability",
+      color: "#5cb85c" // Green color
+    },
+    {
+      start: new Date(2024, 3, 19, 14, 0),
+      end: new Date(2024, 3, 19, 18, 0),
+      title: "Dr. Hernandez's Availability",
+      color: "#f0ad4e" // Orange color
+    },
+    {
+      start: new Date(2024, 3, 20, 10, 0),
+      end: new Date(2024, 3, 20, 13, 0),
+      title: "Dr. Jackson's Availability",
+      color: "#5bc0de" // Blue color
+    },
+    {
+      start: new Date(2024, 3, 21, 9, 0),
+      end: new Date(2024, 3, 21, 12, 0),
+      title: "Dr. Martin's Availability",
+      color: "#d9534f" // Red color
+    },
+    {
+      start: new Date(2024, 3, 22, 15, 0),
+      end: new Date(2024, 3, 22, 19, 0),
+      title: "Dr. Thompson's Availability",
+      color: "#428bca" // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 23, 8, 0),
+      end: new Date(2024, 3, 23, 11, 0),
+      title: "Dr. Robinson's Availability",
+      color: "#5cb85c" // Green color
+    },
+    {
+      start: new Date(2024, 3, 24, 13, 0),
+      end: new Date(2024, 3, 24, 17, 0),
+      title: "Dr. Wood's Availability",
+      color: "#f0ad4e" // Orange color
+    },
+    {
+      start: new Date(2024, 3, 25, 9, 0),
+      end: new Date(2024, 3, 25, 12, 0),
+      title: "Dr. Adams's Availability",
+      color: "#5bc0de" // Blue color
+    },
+    {
+      start: new Date(2024, 3, 26, 14, 0),
+      end: new Date(2024, 3, 26, 18, 0),
+      title: "Dr. Hall's Availability",
+      color: "#d9534f" // Red color
+    },
+    {
+      start: new Date(2024, 3, 27, 10, 0),
+      end: new Date(2024, 3, 27, 13, 0),
+      title: "Dr. Young's Availability",
+      color: "#428bca" // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 28, 8, 0),
+      end: new Date(2024, 3, 28, 11, 0),
+      title: "Dr. Hernandez's Availability",
+      color: "#5cb85c" // Green color
+    },
+    {
+      start: new Date(2024, 3, 29, 13, 0),
+      end: new Date(2024, 3, 29, 17, 0),
+      title: "Dr. Rodriguez's Availability",
+      color: "#f0ad4e" // Orange color
+    },
+    {
+      start: new Date(2024, 3, 30, 9, 0),
+      end: new Date(2024, 3, 30, 12, 0),
+      title: "Dr. Patel's Availability",
+      color: "#5bc0de" // Blue color
+    }
+    // More events...
+  ];
+  const doctorAvailability = [
+   
+    // Add more availability slots as needed...
+  ];
   const handleDateChange1 = (date) => {
     setSelectedDate(date);
   };
@@ -225,10 +397,9 @@ function BookApp() {
               marginLeft: "30px",
               fontSize: "16px",
             }}
-            onClick={() => navigate("/chat")}
+            onClick={() => navigate("/payment")}
           >
-            Connect With a doctor 
-          </button> */}
+ pay          </button> */}
         </Content>
 
         <Form1
@@ -350,6 +521,24 @@ function BookApp() {
           </SubmitButton>
         </Form1>
       </Container>
+
+      <br />
+      <br />
+      <div style={{ backgroundColor: '#ECECEC', margin: 0, padding: 0 }}>
+        <h1 style={{ color: '#007E85', textAlign: 'center' }}>Our Calendar</h1>
+        <h3 style={{ color:'#5D5D5D', textAlign: 'center', fontSize: '15px',marginBottom:'4em'}}>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </h3>
+        </div>
+        <div>
+        <div>
+    <Calendar
+      localizer={localizer}
+      events={myEventsList}
+      startAccessor="start"
+      endAccessor="end"
+      style={{ height: 500 }}
+    />
+  </div>
+  </div>
       <br />
       <br />
       <ServicesPage />

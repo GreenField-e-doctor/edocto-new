@@ -29,7 +29,7 @@ const Login = ({ login, error }) => {
      <Navbar />
     <div className='frmm'>
       <form onSubmit={HandleSubmit}>
-        <h2 style={{color:'#007e85'}}>Login</h2>
+        <h2 style={{color:'#007e85',marginLeft:'110px'}}>Login</h2>
         <div className="container">
           <div className="">
             <img
