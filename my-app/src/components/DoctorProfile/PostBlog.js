@@ -31,9 +31,9 @@ const PostBlog = () => {
 
     return (
         <div className="post-blog-card">
-            <h2>Create Post</h2>
+            <h2 className="post-blog-header">Create Post</h2>
             <form className="post-blog-form" onSubmit={handleSubmit}>
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title" className="post-blog-label">Title</label>
                 <input 
                     id="title"
                     type="text" 
@@ -41,7 +41,7 @@ const PostBlog = () => {
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)} 
                 />
-                <label htmlFor="text">Text</label>
+                <label htmlFor="text" className="post-blog-label">Text</label>
                 <textarea 
                     id="text"
                     placeholder="What's on your mind?" 
