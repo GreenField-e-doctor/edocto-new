@@ -23,10 +23,14 @@ const DoctorProfilePage = () => {
       { author: "Jane Smith", comment: "Very thorough and kind.", rating: 5 },
       { author: "Doe John", comment: "Helpful and informative.", rating: 4 },
     ],
-    appointments : [
+    appointments: [
       { name: "Alice Wonderland", date: "2024-04-15, 10:00 AM", description: "Routine check-up", rating: 4 },
       { name: "Charlie Bucket", date: "2024-04-16, 11:00 AM", description: "Consultation", rating: 5 },
+      { name: "Peter Pan", date: "2024-04-17, 09:00 AM", description: "Follow-up", rating: 4 },
+      { name: "Wendy Darling", date: "2024-04-18, 01:00 PM", description: "Vaccination", rating: 5 },
+      { name: "Captain Hook", date: "2024-04-19, 02:00 PM", description: "Surgery consultation", rating: 3 },
     ]
+    
    
   });
   const [searchQuery, setSearchQuery] = useState("");
