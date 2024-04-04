@@ -42,11 +42,11 @@ function Navbar() {
         if(localStorage.getItem("userType")==='Patient') {navigate('/patient')}
           }}
         />
-        <Link to={"/"}>
-          <h2>
-            health<font color="#6eab36">care</font>
-          </h2>
-        </Link>
+       <Link to={"/"} style={{ textDecoration: 'none' }}>
+  <h2>
+    health<font color="#6eab36">care</font>
+  </h2>
+</Link>
       </div>
       <div className="navLinks">
         <Link to={"/"}>
@@ -67,7 +67,7 @@ function Navbar() {
             Blogs
           </a>
         </Link>
-        <Link to={"/"}>
+        <Link to={"/Pharmacy"}>
           <a className="Contact" href="">
             Pharmacy
           </a>

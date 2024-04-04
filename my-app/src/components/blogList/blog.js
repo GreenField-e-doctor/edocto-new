@@ -66,7 +66,7 @@ function OneBlog() {
     <div>
       <Navbar />
       <div>
-        <h2> {blog.Title}</h2>
+        <h2> Lorem Ipsum</h2>
         <br />
         <p className='textupBlogD'>Great doctor if you need your family member to get effective immediate assistance, <br />emergency treatment or a simple consultation.</p>
         <p> Calvin Carlo 29th Nov 2023</p>
@@ -92,7 +92,6 @@ function OneBlog() {
             />
           </div>
           <div>
-            <h3 className='Recent-post'> Recent post</h3>
             <div className='LastBlogsDiv'>
               <img className='LastBlogs1' src='https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fblog%2F07.jpg&w=1920&q=75' />
               <p className='LastBlogsP'>Consultant Business</p>
@@ -108,7 +107,7 @@ function OneBlog() {
           </div>
         </Box>
       </div>
-      <img className='imgBlogDetail' src={blog.ImageUrl} />
+      <img className='imgBlogDetail' src='https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fblog%2F07.jpg&w=1920&q=75' />
 
       <div >
         <p className='textDownBlogd'>This is required when, for example, the final text is not yet available. Dummy text is also known as fill text.<br /> It is said that song composers of the past used dummy texts as lyrics when writing melodies in order<br />

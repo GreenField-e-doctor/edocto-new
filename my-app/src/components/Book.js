@@ -237,10 +237,7 @@ function BookApp() {
     }
     // More events...
   ];
-  const doctorAvailability = [
-   
-    // Add more availability slots as needed...
-  ];
+ 
   const handleDateChange1 = (date) => {
     setSelectedDate(date);
   };

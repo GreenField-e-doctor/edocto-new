@@ -1,21 +1,13 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DoctorInfo from '../DoctorInfo/DoctorInfo';
 import Rating from 'react-rating-stars-component';
 import { Modal, Button, Form } from 'react-bootstrap';
-import profileImage from './image_16.png'; 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import profileImage from './image_16.png';
 import './DoctorProfile.css';
 import Reviews from '../Reviews';
-// import PostBlog from './PostBlog'
-import Navbar from '../Navbar';
-import Footer from '../footer/Footer';
 
 const DoctorProfilePage = () => {
-
-
-
-
   const [doctorData, setDoctorData] = useState({
     name: "Dr. Zven Den",
     specialty: "Cardiology",
@@ -25,30 +17,33 @@ const DoctorProfilePage = () => {
       { author: "Jane Smith", comment: "Very thorough and kind.", rating: 5 },
       { author: "Doe John", comment: "Helpful and informative.", rating: 4 },
     ],
-    appointments : [
+    appointments: [
       { name: "Alice Wonderland", date: "2024-04-15, 10:00 AM", description: "Routine check-up", rating: 4 },
       { name: "Charlie Bucket", date: "2024-04-16, 11:00 AM", description: "Consultation", rating: 5 },
+      { name: "Peter Pan", date: "2024-04-17, 09:00 AM", description: "Follow-up", rating: 4 },
+      { name: "Wendy Darling", date: "2024-04-18, 01:00 PM", description: "Vaccination", rating: 5 },
+      { name: "Captain Hook", date: "2024-04-19, 02:00 PM", description: "Surgery consultation", rating: 3 },
     ]
-   
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [isReview, setIsReview] = useState(false);
 
-  
-
   useEffect(() => {
     const userString = localStorage.getItem('user');
-    const user = JSON.parse(userString);
-    console.log(user);
-    user.appointments = [
-      { name: "Alice Wonderland", date: "2024-04-15, 10:00 AM", description: "Routine check-up", rating: 4 },
-      { name: "Charlie Bucket", date: "2024-04-16, 11:00 AM", description: "Consultation", rating: 5 },
-    ]
-    console.log('fixed',user);
-    setDoctorData(user);
-  }, [, searchQuery, showPasswordModal, showProfileModal, isReview])
+    if (userString) {
+        const user = JSON.parse(userString);
+        user.appointments = [
+          { name: "Alice Wonderland", date: "2024-04-15, 10:00 AM", description: "Routine check-up", rating: 4 },
+          { name: "Charlie Bucket", date: "2024-04-16, 11:00 AM", description: "Consultation", rating: 5 },
+        ]
+        setDoctorData(user);
+    } else {
+        console.log('No user found in localStorage.');
+    }
+  }, [searchQuery, showPasswordModal, showProfileModal, isReview])
+
   const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
@@ -60,15 +55,14 @@ const DoctorProfilePage = () => {
   const handleShowProfileModal = () => setShowProfileModal(true);
   const handleCloseProfileModal = () => setShowProfileModal(false);
 
-  return ( <div>
-    <Navbar />
+  return (
     <div className="doctor-profile-container my-5">
       <img src={profileImage} alt="Profile" className="doctor-profile-picture" />
       <div className="row">
         <div className="col-md-3">
           <DoctorInfo
-            name={doctorData.FirstName+" "+doctorData.LastName}
-            specialty='dental Care'
+            name={doctorData.name}
+            specialty={doctorData.specialty}
             picture={doctorData.imageUrl}
             ratings={doctorData.ratings}
           />
@@ -81,29 +75,29 @@ const DoctorProfilePage = () => {
             value={searchQuery}
             onChange={handleSearchChange}
           />
-          <ul className="nav nav-tabs mb-4">
+           <ul className="nav nav-tabs mb-4">
             <li className="nav-item">
-              <a className="nav-link" onClick={handleShowProfileModal}>My Profile</a>
+              <Button variant="primary" onClick={handleShowProfileModal} className="me-2">My Profile</Button>
             </li>
             <li className="nav-item">
-              <Button variant="primary" onClick={handleShowPasswordModal}>Change Password</Button>
-              <Button variant="primary" onClick={()=>setIsReview(false)}>Appointments</Button>
+              <Button variant="primary" onClick={handleShowPasswordModal} className="me-2">Change Password</Button>
+              <Button variant="primary" onClick={() => setIsReview(false)}>Appointments</Button>
             </li>
             <li className="nav-item">
-          <button onClick={() => navigate('/postblog')} className="btn btn-primary">Post Blog</button>
-        </li>
-            <li className="nav-item">
-              <a className="nav-link" onClick={() => navigate('/notifications')}>Notifications</a>
+              <Button variant="primary" onClick={() => navigate('/postblog')} className="me-2">Post Blog</Button>
             </li>
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={()=>setIsReview(true)}>Reviews</button>
+              <Button variant="primary" onClick={() => navigate('/notifications')} className="me-2">Notifications</Button>
+            </li>
+            <li className="nav-item">
+              <Button variant="primary" onClick={() => setIsReview(true)}>Reviews</Button>
             </li>
           </ul>
           <div className="mt-4">
             <h5>Filtered Appointments</h5>
-            { isReview ? <Reviews/>: doctorData && doctorData.appointments.filter(appointment => appointment.name.toLowerCase().includes(searchQuery.toLowerCase()) || appointment.description.toLowerCase().includes(searchQuery.toLowerCase())).map((appointment, index) => (
+            {isReview ? <Reviews /> : doctorData.appointments.filter(appointment => appointment.name.toLowerCase().includes(searchQuery.toLowerCase()) || appointment.description.toLowerCase().includes(searchQuery.toLowerCase())).map((appointment, index) => (
               <div key={index} className="doctor-profile-card card mb-3">
-                <div className="card-body ">
+                <div className="card-body">
                   <h5 className="card-title">{appointment.name}</h5>
                   <p className="card-text">{appointment.description}</p>
                   <p className="card-text"><small className="text-muted">{appointment.date}</small></p>
@@ -143,8 +137,8 @@ const DoctorProfilePage = () => {
         </Modal.Header>
         <Modal.Body>
           <DoctorInfo
-            name={doctorData.FirstName + " " + doctorData.LastName}
-            specialty='dental Care'
+            name={doctorData.name}
+            specialty={doctorData.specialty}
             picture={doctorData.imageUrl}
             ratings={doctorData.ratings}
           />
@@ -155,8 +149,6 @@ const DoctorProfilePage = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
-    <Footer/>
     </div>
   );
 };

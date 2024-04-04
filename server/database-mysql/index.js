@@ -229,6 +229,10 @@ const Product = sequelize.define('Product', {
     type: DataTypes.TEXT,
     allowNull: true,
   },
+  Category: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
 });
 
 
@@ -248,7 +252,7 @@ module.exports = {
   Message,
   Blog,
   Product,
-  Comment, // Add Comment to the exported modules
+  Comment,
 };
 
 // sequelize.sync()

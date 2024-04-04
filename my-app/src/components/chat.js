@@ -76,10 +76,10 @@ function Chat() {
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.sender === 'You' ? 'sent' : 'received'}`}>
               <div className="message-info">
-                <span className="sender">{message.sender}</span>
+                <span className="d" >{message.sender}</span>
                 <span className="timestamp">{message.timestamp}</span>
               </div>
-              <p className="content">{message.content}</p>
+              <p className="e" style={{color:'Black', textAlign:'center',fontSize:'16px'}}>{message.content}</p>
             </div>
           ))}
         </div>

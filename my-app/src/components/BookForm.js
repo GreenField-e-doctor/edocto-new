@@ -199,7 +199,7 @@ function BookForm(props) {
         <br />
 
         <br />
-        <input type="date" id="start" onChange={handleDateChange} />
+        <input style={{width:'180px'}} type="date" id="start" onChange={handleDateChange} />
         <input
           type="time"
           value={time}

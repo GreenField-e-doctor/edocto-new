@@ -1,7 +1,7 @@
 import Navbar from "./Navbar";
 import DoctorComponent from "./doctorComponent";
 import Footer from "./footer/Footer";
-import React, { useState, useEffect,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactStars from "react-stars";
 import axios from "axios";
 import BookForm from "./BookForm";
@@ -14,51 +14,342 @@ import { RiShieldCrossLine } from "react-icons/ri";
 import { MdOutlineWork } from "react-icons/md";
 import { MdAirplay } from "react-icons/md";
 import { GiHealthNormal } from "react-icons/gi";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import "../css/calendar.css";
+import { Link } from "react-router-dom";
 function Doctor() {
   const [doctors, setDoctors] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [showReview, setShowReview] = useState(false);
   const [doctor, setDoctor] = useState({});
   const endOfPageRef = useRef(null);
-    const [searchClicked, setSearchClicked] = useState(false);
-    const [searchValue, setSearchValue] = useState("");
-    const [error,setError]  = useState(false);
-    const [tempDoctors, setTempDoctors] = useState([])
+  const [searchClicked, setSearchClicked] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [error, setError] = useState(false);
+  const [tempDoctors, setTempDoctors] = useState([]);
+  const localizer = momentLocalizer(moment);
 
+  const myEventsList = [
+    {
+      start: new Date(2024, 3, 4, 9, 0),
+      end: new Date(2024, 3, 4, 12, 0),
+      title: "Dr. Smith's Availability",
+      color: "#5cb85c", // Green color
+    },
+    {
+      start: new Date(2024, 3, 5, 14, 0),
+      end: new Date(2024, 3, 5, 18, 0),
+      title: "Dr. Johnson's Availability",
+      color: "#f0ad4e", // Orange color
+    },
+    {
+      start: new Date(2024, 3, 6, 10, 0),
+      end: new Date(2024, 3, 6, 13, 0),
+      title: "Dr. Williams's Availability",
+      color: "#5bc0de", // Blue color
+    },
+    {
+      start: new Date(2024, 3, 7, 9, 0),
+      end: new Date(2024, 3, 7, 12, 0),
+      title: "Dr. Brown's Availability",
+      color: "#d9534f", // Red color
+    },
+    {
+      start: new Date(2024, 3, 8, 15, 0),
+      end: new Date(2024, 3, 8, 19, 0),
+      title: "Dr. Lee's Availability",
+      color: "#5cb85c", // Green color
+    },
+    {
+      start: new Date(2024, 3, 9, 8, 0),
+      end: new Date(2024, 3, 9, 11, 0),
+      title: "Dr. Garcia's Availability",
+      color: "#f0ad4e", // Orange color
+    },
+    {
+      start: new Date(2024, 3, 10, 13, 0),
+      end: new Date(2024, 3, 10, 17, 0),
+      title: "Dr. Martinez's Availability",
+      color: "#5bc0de", // Blue color
+    },
+    {
+      start: new Date(2024, 3, 11, 9, 0),
+      end: new Date(2024, 3, 11, 12, 0),
+      title: "Dr. Nguyen's Availability",
+      color: "#d9534f", // Red color
+    },
+    {
+      start: new Date(2024, 3, 12, 14, 0),
+      end: new Date(2024, 3, 12, 18, 0),
+      title: "Dr. Kim's Availability",
+      color: "#428bca", // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 13, 10, 0),
+      end: new Date(2024, 3, 13, 13, 0),
+      title: "Dr. Rodriguez's Availability",
+      color: "#5cb85c", // Green color
+    },
+    {
+      start: new Date(2024, 3, 14, 8, 0),
+      end: new Date(2024, 3, 14, 11, 0),
+      title: "Dr. Hernandez's Availability",
+      color: "#f0ad4e", // Orange color
+    },
+    {
+      start: new Date(2024, 3, 15, 13, 0),
+      end: new Date(2024, 3, 15, 17, 0),
+      title: "Dr. Patel's Availability",
+      color: "#5bc0de", // Blue color
+    },
+    {
+      start: new Date(2024, 3, 16, 9, 0),
+      end: new Date(2024, 3, 16, 12, 0),
+      title: "Dr. Clark's Availability",
+      color: "#d9534f", // Red color
+    },
+    {
+      start: new Date(2024, 3, 17, 15, 0),
+      end: new Date(2024, 3, 17, 19, 0),
+      title: "Dr. King's Availability",
+      color: "#428bca", // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 18, 8, 0),
+      end: new Date(2024, 3, 18, 11, 0),
+      title: "Dr. Young's Availability",
+      color: "#5cb85c", // Green color
+    },
+    {
+      start: new Date(2024, 3, 19, 14, 0),
+      end: new Date(2024, 3, 19, 18, 0),
+      title: "Dr. Hernandez's Availability",
+      color: "#f0ad4e", // Orange color
+    },
+    {
+      start: new Date(2024, 3, 20, 10, 0),
+      end: new Date(2024, 3, 20, 13, 0),
+      title: "Dr. Jackson's Availability",
+      color: "#5bc0de", // Blue color
+    },
+    {
+      start: new Date(2024, 3, 21, 9, 0),
+      end: new Date(2024, 3, 21, 12, 0),
+      title: "Dr. Martin's Availability",
+      color: "#d9534f", // Red color
+    },
+    {
+      start: new Date(2024, 3, 22, 15, 0),
+      end: new Date(2024, 3, 22, 19, 0),
+      title: "Dr. Thompson's Availability",
+      color: "#428bca", // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 23, 8, 0),
+      end: new Date(2024, 3, 23, 11, 0),
+      title: "Dr. Robinson's Availability",
+      color: "#5cb85c", // Green color
+    },
+    {
+      start: new Date(2024, 3, 24, 13, 0),
+      end: new Date(2024, 3, 24, 17, 0),
+      title: "Dr. Wood's Availability",
+      color: "#f0ad4e", // Orange color
+    },
+    {
+      start: new Date(2024, 3, 25, 9, 0),
+      end: new Date(2024, 3, 25, 12, 0),
+      title: "Dr. Adams's Availability",
+      color: "#5bc0de", // Blue color
+    },
+    {
+      start: new Date(2024, 3, 26, 14, 0),
+      end: new Date(2024, 3, 26, 18, 0),
+      title: "Dr. Hall's Availability",
+      color: "#d9534f", // Red color
+    },
+    {
+      start: new Date(2024, 3, 27, 10, 0),
+      end: new Date(2024, 3, 27, 13, 0),
+      title: "Dr. Young's Availability",
+      color: "#428bca", // Sky Blue color
+    },
+    {
+      start: new Date(2024, 3, 28, 8, 0),
+      end: new Date(2024, 3, 28, 11, 0),
+      title: "Dr. Hernandez's Availability",
+      color: "#5cb85c", // Green color
+    },
+    {
+      start: new Date(2024, 3, 29, 13, 0),
+      end: new Date(2024, 3, 29, 17, 0),
+      title: "Dr. Rodriguez's Availability",
+      color: "#f0ad4e", // Orange color
+    },
+    {
+      start: new Date(2024, 3, 30, 9, 0),
+      end: new Date(2024, 3, 30, 12, 0),
+      title: "Dr. Patel's Availability",
+      color: "#5bc0de", // Blue color
+    },
+    // More events...
+  ];
+  let dummy = [
+    {
+      FirstName: "John",
+      LastName: "Doe",
+      Username: "john_doe123",
+      Email: "john.doe@example.com",
+      Password: "hashed_password",
+      UserType: "Patient",
+      Speciality: null,
+      PhoneNumber: "123-456-7890",
+    },
+    {
+      FirstName: "Alice",
+      LastName: "Smith",
+      Username: "alice_smith",
+      Email: "alice.smith@example.com",
+      Password: "hashed_password",
+      UserType: "Doctor",
+      Speciality: "Cardiology",
+      PhoneNumber: "987-654-3210",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F02.jpg&w=3840&q=75",
+    },
+    {
+      FirstName: "Michael",
+      LastName: "Johnson",
+      Username: "mike_j",
+      Email: "michael.johnson@example.com",
+      Password: "hashed_password",
+      UserType: "Doctor",
+      Speciality: "Dermatology",
+      PhoneNumber: "555-123-4567",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F03.jpg&w=3840&q=75",
+    },
+    {
+      FirstName: "Sarah",
+      LastName: "Brown",
+      Username: "sarah_brown",
+      Email: "sarah.brown@example.com",
+      Password: "hashed_password",
+      UserType: "Patient",
+      Speciality: null,
+      PhoneNumber: "111-222-3333",
+    },
+    {
+      FirstName: "David",
+      LastName: "Williams",
+      Username: "david_w",
+      Email: "david.williams@example.com",
+      Password: "hashed_password",
+      UserType: "Doctor",
+      Speciality: "Pediatrics",
+      PhoneNumber: "999-888-7777",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F04.jpg&w=3840&q=75",
+    },
+    {
+      FirstName: "Emily",
+      LastName: "Taylor",
+      Username: "emily_t",
+      Email: "emily.taylor@example.com",
+      Password: "hashed_password",
+      UserType: "Patient",
+      Speciality: null,
+      PhoneNumber: "444-555-6666",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F05.jpg&w=3840&q=75",
+    },
+    {
+      FirstName: "Christopher",
+      LastName: "Clark",
+      Username: "chris_c",
+      Email: "christopher.clark@example.com",
+      Password: "hashed_password",
+      UserType: "Doctor",
+      Speciality: "Orthopedics",
+      PhoneNumber: "777-666-5555",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F07.jpg&w=3840&q=75",
+    },
+    {
+      FirstName: "Christopher",
+      LastName: "Clark",
+      Username: "chris_c",
+      Email: "christopher.clark@example.com",
+      Password: "hashed_password",
+      UserType: "Doctor",
+      Speciality: "Orthopedics",
+      PhoneNumber: "777-666-5555",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F05.jpg&w=3840&q=75",
+    },
+    {
+      FirstName: "Emma",
+      LastName: "Miller",
+      Username: "emma_m",
+      Email: "emma.miller@example.com",
+      Password: "hashed_password",
+      UserType: "Patient",
+      Speciality: null,
+      PhoneNumber: "222-333-4444",
+    },
+    {
+      FirstName: "James",
+      LastName: "Wilson",
+      Username: "james_w",
+      Email: "james.wilson@example.com",
+      Password: "hashed_password",
+      UserType: "Doctor",
+      Speciality: "Oncology",
+      PhoneNumber: "888-999-0000",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F08.jpg&w=3840&q=75",
+    },
+    {
+      FirstName: "Olivia",
+      LastName: "Martinez",
+      Username: "olivia_m",
+      Email: "olivia.martinez@example.com",
+      Password: "hashed_password",
+      UserType: "Patient",
+      Speciality: "Doctor",
+      PhoneNumber: "666-777-8888",
+      img: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F06.jpg&w=3840&q=75",
+    },
+  ];
   useEffect(() => {
     getDoctors();
-   
   }, []);
 
   const getDoctors = async () => {
-    const response = await axios.get("http://localhost:3000/api/users/all");
-    console.log(response.data);
-    const data = await response.data.filter((doctor) => {
+    // const response = await axios.get("http://localhost:3000/api/users/all");
+    // console.log(response.data);
+    const data = await dummy.filter((doctor) => {
       return doctor.UserType === "Doctor";
     });
     setDoctors(data);
     setTempDoctors(data);
   };
-  
+
   const handleBookClick = () => {
     setShowModal(true);
   };
- const handleSearchClick = async () => {
-   await setDoctors(tempDoctors);
-        let temp = doctors.filter((doctor) => {
-            return doctor.FirstName.toLowerCase().includes(searchValue.toLowerCase());
-        })
-        if(!temp.length){
-            setError(true);
-        }
-        else{
-            setError(false);
-            setDoctors(temp);
-            endOfPageRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-      
-  }
+  const handleSearchClick = async () => {
+    await setDoctors(tempDoctors);
+    let temp = doctors.filter((doctor) => {
+      return doctor.FirstName.toLowerCase().includes(searchValue.toLowerCase());
+    });
+    if (!temp.length) {
+      setError(true);
+    } else {
+      setError(false);
+      setDoctors(temp);
+      endOfPageRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+  const handleCloseReview = () => {
+    setShowReview(false);
   };
   const data = [
     {
@@ -164,42 +455,41 @@ function Doctor() {
 
             <div
               style={{
-                  display: "inline",
-                  // flexDirection: 'column',
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-                >
+                display: "inline",
+                // flexDirection: 'column',
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <input
                 type="text"
                 placeholder="Doctor Name"
                 style={{
-                    width: "300px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    border: "1px solid #ccc",
-                    padding: "5px",
-                    marginBottom: "10px",
-                    marginRight: "10px",
+                  width: "300px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  border: "1px solid #ccc",
+                  padding: "5px",
+                  marginBottom: "10px",
+                  marginRight: "10px",
                 }}
                 onChange={(e) => setSearchValue(e.target.value)}
               />
               <button
                 style={{
-                    width: "100px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    border: "none",
-                    backgroundColor: "#007BFF",
-                    color: "#fff",
-                    cursor: "pointer",
-                    
+                  width: "100px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  border: "none",
+                  backgroundColor: "#007BFF",
+                  color: "#fff",
+                  cursor: "pointer",
                 }}
                 onClick={handleSearchClick}
-                >
+              >
                 Search
               </button>
-                  {error && <p style={{ color: "red" }}>No doctor found</p>}
+              {error && <p style={{ color: "red" }}>No doctor found</p>}
             </div>
             <div
               style={{
@@ -255,6 +545,31 @@ function Doctor() {
         </div>
       </div>
       <br />
+      <div style={{ backgroundColor: "#ECECEC", margin: 0, padding: 0 }}>
+        <h1 style={{ color: "#007E85", textAlign: "center" }}>Our Calendar</h1>
+        <h3
+          style={{
+            color: "#5D5D5D",
+            textAlign: "center",
+            fontSize: "15px",
+            marginBottom: "4em",
+          }}
+        >
+          Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar
+          elementum tempus hac tellus libero accumsan.{" "}
+        </h3>
+      </div>
+      <br />
+      <Calendar
+        localizer={localizer}
+        events={myEventsList}
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: 500 }}
+      />
+      <br />
+      <br />
+
       <div>
         <div style={{ backgroundColor: "#ECECEC", margin: 0, padding: 0 }}>
           <h1 style={{ color: "#007E85", textAlign: "center" }}>
@@ -446,7 +761,6 @@ function Doctor() {
       </div>
       <br />
       <div ref={endOfPageRef}>
-
         <h1 className="ms-3" style={{ color: "#007E85", textAlign: "center" }}>
           Find Your Specialists
         </h1>
@@ -462,7 +776,7 @@ function Doctor() {
                 style={{ width: "300px", height: "575px", marginLeft: "90px" }}
               >
                 <img
-                  src="https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fdoctors%2F01.jpg&w=1920&q=75"
+                  src={doctor.img}
                   className="card-img-top"
                   alt="Doctor"
                   style={{ transition: "transform 0.3s", cursor: "pointer" }}
@@ -557,7 +871,7 @@ function Doctor() {
                   </ul>
                   <ul className="list-unstyled mt-2 mb-0">
                     <li className="list-inline-item">
-                      <button className="btn btn-icon btn-pills btn-soft-primary">
+                    <Link to={'/chat'}>  <button className="btn btn-icon btn-pills btn-soft-primary">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="icons"
@@ -573,6 +887,7 @@ function Doctor() {
                           <path d="M3 18c0 1.1.9 2 2 2h10l4 4V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13z" />
                         </svg>
                       </button>
+                      </Link>
                     </li>
                     <li className="mt-2 list-inline-item">
                       <button
@@ -600,22 +915,26 @@ function Doctor() {
                       </button>
                     </li>
                     <li className="mt-2 list-inline-item">
-                      <button className="btn btn-icon btn-pills btn-soft-primary">
+                     <Link to={'/doctorRates'}> <button className="btn btn-icon btn-pills btn-soft-primary"
+                      
+                      >
+                        
                         <svg
-                          stroke="currentColor"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icons"
                           fill="none"
-                          strokeWidth="2"
                           viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="icons"
                           height="1.5em"
-                          width="1.5em"
-                          xmlns="http://www.w3.org/2000/svg"
+                          width="1.2em"
                         >
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                          <polygon points="12 1 16 11 27 11 18 17 22 28 12 22 2 28 6 17 1 11 12 1" />
                         </svg>
                       </button>
+                      </Link>
                     </li>
                     <li className="mt-2 list-inline-item">
                       <button className="btn btn-icon btn-pills btn-soft-primary">
@@ -652,12 +971,12 @@ function Doctor() {
             </div>
           </Modal.Body>
         </Modal>
+       
       </div>
       <br />
       <Footer />
     </div>
   );
 }
-
 
 export default Doctor;

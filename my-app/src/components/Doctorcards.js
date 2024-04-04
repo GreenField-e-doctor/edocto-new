@@ -13,11 +13,12 @@ function Doctorcards() {
     getDoctors();
   }, []);
 
+  
   const getDoctors = async () => {
     const response = await axios.get("http://localhost:3000/api/users/all");
     console.log(response.data);
-    const data = await response.data.filter((doctor) => {
-      return doctor.UserType === "Doctor";
+    const data = response.data.filter((doctor) => {
+        return doctor.UserType === "Doctor";
     });
     setDoctors(data);
   };

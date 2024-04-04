@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PaymentFail from './PaymentFail';
 import PaymentSuccess from './PaymentSuccess';
-
+import { useParams } from 'react-router';
 const Paymentcomponent = () => {
   const [paymentStatus, setPaymentStatus] = useState('error');
   const [link, setLink] = useState('');
+  const { amount } = useParams();
   const body = {
-    amount: 100,
+    amount: JSON.parse(amount) * 100,
   };
   useEffect(() => {
     axios.post('http://localhost:3000/api/add', body)
