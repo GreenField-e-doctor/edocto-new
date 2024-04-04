@@ -46,9 +46,15 @@ const Signup = () => {
       );
       console.log(response.data);
       setError("");
-
-      // Send greeting email
-      dispatch(sendSignupEmail(Email, FirstName));
+      
+      if(UserType === 'Doctor') {
+        console.log('1');
+        dispatch(sendSignupEmail(Email, Username, UserType, Specialization));
+      }
+      if(UserType === 'Patient') {
+        console.log("2");
+        dispatch(sendSignupEmail(Email, Username, UserType));
+      }
 
       navigate("/login");
     } catch (err) {
@@ -79,15 +85,15 @@ const Signup = () => {
   return (
     <div>
       <Navbar />
-      <div className="form doctor-form" style={{ width: "50%", display: "flex", flexDirection: "column", alignItems: "center", marginLeft:'340px'}}>
+      <div className="form doctor-form" style={{ width: "50%", display: "flex", flexDirection: "column", alignItems: "center", marginLeft:'340px',backgroundColor:'white'}}>
               <form onSubmit={HandleSubmit}>
-            <h2 style={{ color: "#007E85", marginBottom:'20px'}}> Sign Up</h2>
+            <h2 style={{ color: "#007E85", marginBottom:'20px',marginLeft:'120px',marginTop:'33px'}}> Sign Up</h2>
             <div>
             <div className="doctor-image">
               <img
                 src="https://th.bing.com/th/id/OIP.czYUxy7G0x5DDRsqs9xq0QHaHa?w=204&h=204&c=7&r=0&o=5&dpr=1.3&pid=1.7"
                 alt="Doctor"
-                style={{marginBottom:'20px' , borderRadius:'20%'}}
+                style={{marginBottom:'20px' , borderRadius:'20%',marginLeft:'50px',marginTop:'20px',background:'transparent'}}
               />
             </div>
             <div>

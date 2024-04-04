@@ -12,7 +12,7 @@ function PharmacyPage() {
  
   const categories = [
     { id: 1, name: "Skin Care", imageUrl: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fpharmacy%2Fskin.jpg&w=1920&q=75", path: "Skin Care" },
-    { id: 2, name: "Sexual Wellness", imageUrl: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fpharmacy%2Fsexual.jpg&w=1920&q=75", path: "sexual-wellness" },
+    { id: 2, name: " Wellness", imageUrl: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fpharmacy%2Fheart.jpg&w=3840&q=75", path: "wellness" },
     { id: 3, name: "Weight Management", imageUrl: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fpharmacy%2Fweight.jpg&w=1920&q=75", path: "weight-management" },
     { id: 4, name: "Pain Relief", imageUrl: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fpharmacy%2Fpain.jpg&w=1920&q=75", path: "pain-relief" },
     { id: 5, name: "Heart Health", imageUrl: "https://doctris-landing-next.vercel.app/_next/image?url=%2Fimages%2Fpharmacy%2Fheart.jpg&w=1920&q=75", path: "heart-health" },
