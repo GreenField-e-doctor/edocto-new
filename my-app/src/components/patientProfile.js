@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Image } from 'cloudinary-react';
+// import { Image } from 'cloudinary-react';
 import '../css/test.css'; // Import CSS file
 
 const ProfileComponent = () => {
@@ -15,7 +15,7 @@ const ProfileComponent = () => {
     Avatar: ''
   });
   const [avatarFile, setAvatarFile] = useState(null);
-  const [showImage, setShowImage] = useState(true); // State variable to toggle image visibility
+  // const [showImage, setShowImage] = useState(true); // State variable to toggle image visibility
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/users/1')
@@ -87,10 +87,10 @@ const ProfileComponent = () => {
     <div className="container">
       <div className="profile-header">
         <div className="profile-img" onClick={() => document.getElementById('avatarInput').click()}>
-          <Image cloudName="dfsyqvvim" publicId={userData ? userData.Avatar : "default_avatar"} width="200" />
+          {/* <Image cloudName="dfsyqvvim" publicId={userData ? userData.Avatar : "default_avatar"} width="200" /> */}
         </div>
         <input id="avatarInput" type="file" accept="image/*" onChange={handleAvatarChange} style={{ display: 'none' }} />
-        {showImage && <img className='statistics' src="https://images2.imgbox.com/bb/8c/BnsbhkLO_o.png" alt="Settings" />} {/* Conditionally render the image */}
+        {/* {showImage && <img className='statistics' src="https://images2.imgbox.com/bb/8c/BnsbhkLO_o.png" alt="Settings" />} Conditionally render the image */}
         <div className="profile-nav-info">
           <h3 className="user-name">{userData ? userData.Username : 'Loading...'}</h3>
           <div className="address">
@@ -113,7 +113,7 @@ const ProfileComponent = () => {
         <div className="right-side">
           <div className="nav">
             <ul>
-              <li id="seti" className={`user-setting ${activeTab === 2 ? 'active' : ''}`} onClick={() => { setActiveTab(2); setShowImage(false); }}>Settings</li> {/* Toggle showImage when Settings clicked */}
+              {/* <li id="seti" className={`user-setting ${activeTab === 2 ? 'active' : ''}`} onClick={() => { setActiveTab(2); setShowImage(false); }}>Settings</li> Toggle showImage when Settings clicked */}
             </ul>
           </div>
           <div className="profile-body">
