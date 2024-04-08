@@ -23,7 +23,7 @@ const Login = ({ login, error }) => {
         if(localStorage.getItem("userType")==='Patient') {navigate('/')}
         
       }
-  };
+  }
 
   return ( <div>
      <Navbar />
