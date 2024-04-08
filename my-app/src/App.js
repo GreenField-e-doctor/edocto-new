@@ -1,4 +1,3 @@
-import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import Home from './components/Home';
 import Signup from './components/Signup';
@@ -28,8 +27,20 @@ import MenuDoctor from './components/menuDoctor/MenuDoctor';
 import PaymentFail from './components/PaymentFail';
 import PaymentSuccess from './components/PaymentSuccess'; 
 import Paymentcomponent from './components/Paymentcomponent';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    window.embeddedChatbotConfig = {
+      chatbotId: "J03WrsElQD-7aiYxujDNO",
+      domain: "www.chatbase.co"
+    };
+
+    const script = document.createElement('script');
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
   return (
     <div className="App">
 
